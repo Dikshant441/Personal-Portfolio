@@ -24,7 +24,7 @@ export default function Header() {
                         >
                             <Link
                                 className=
-                                "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition "
+                                "flex w-full items-center justify-center px-3 py-3 hover:text-purple-900 transition "
                                 href={link.hash}>{link.name}</Link>
                         </motion.li>
                     ))}
