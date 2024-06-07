@@ -10,5 +10,6 @@ npx create-next-app@13.4.8 .
 - Image
 - Description About me 
 
-
+3. In experience section
+- npm i vertical-timeline-component-react@3.0.1
 
