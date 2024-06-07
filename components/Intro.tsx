@@ -6,10 +6,17 @@ import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare, FaTwitter, FaTwitterSquare, FaXRay } from "react-icons/fa";
+import { useSectionView } from "@/lib/hooks";
 
 export default function Intro() {
+
+    const { ref } = useSectionView("Home", 0.5);
+
     return (
-        <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
+        <section className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+            id="home"
+            ref={ref}
+        >
             <div className="flex items-center justify-center">
                 <div className="relative">
                     <motion.div
@@ -106,12 +113,9 @@ export default function Intro() {
                     target="_blank"
                 >
                     <FaTwitterSquare />
-                    
+
                 </a>
-
             </motion.div>
-
-
         </section>
     )
 }
