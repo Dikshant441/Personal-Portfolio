@@ -61,7 +61,7 @@ export default function Intro() {
             >
                 <span className="font-bold">Hello, I'm Dikshant Singh.</span> I'm an aspiring{" "}
                 <span className="font-bold">full-stack developer</span>
-                <span className="font-bold"> eager to contribute to innovative projects.</span> I enjoy
+                <span className="font-bold"> based in India, </span> eager to contribute to innovative projects. I enjoy
                 building <span className="italic">sites & apps</span>. My focus is{" "}
                 <span className="underline">React (Next.js)</span>
                 <span> & MERN stack</span>.

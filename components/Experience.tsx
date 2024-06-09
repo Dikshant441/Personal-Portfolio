@@ -13,7 +13,10 @@ export default function Experience() {
   
     return (
       <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
-        <SectionHeading>My Education & experience</SectionHeading>
+        <SectionHeading>My Qualifications</SectionHeading>
+        <p className="text-lg mb-8 text-center font-normal text-gray-500">
+                My personal journey
+      </p>
         <VerticalTimeline lineColor="">
           {experiencesData.map((item, index) => (
             <React.Fragment key={index}>
