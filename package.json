@@ -30,6 +30,7 @@
     "react-toastify": "^10.0.5",
     "react-vertical-timeline-component": "^3.6.0",
     "resend": "^0.16.0",
+    "sharp": "^0.33.4",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.5",
     "vertical-timeline-component-react": "^3.0.4"
