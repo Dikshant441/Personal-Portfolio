@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { FaGithubSquare, FaTwitter, FaTwitterSquare, FaXRay } from "react-icons/fa";
+import { FaGithubSquare, FaTwitterSquare} from "react-icons/fa";
 import { useSectionView } from "@/lib/hooks";
 
 export default function Intro() {
@@ -59,7 +59,7 @@ export default function Intro() {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
             >
-                <span className="font-bold">Hello, I'm Dikshant Singh.</span> I'm an aspiring{" "}
+                <span className="font-bold">Hello, I&apos;m Dikshant Singh.</span> I&apos;m an aspiring{" "}
                 <span className="font-bold">full-stack developer</span>
                 <span className="font-bold"> based in India, </span> eager to contribute to innovative projects. I enjoy
                 building <span className="italic">sites & apps</span>. My focus is{" "}
