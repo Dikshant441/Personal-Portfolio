@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-email/components": "^0.0.19",
+    "@react-email/render": "^0.0.15",
+    "@react-email/tailwind": "^0.0.18",
     "@types/node": "20.14.1",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "10.4.19",
     "clsx": "^2.1.1",
     "eslint": "8.57.0",
@@ -24,7 +27,9 @@
     "react-icon": "^1.0.0",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.10.3",
+    "react-toastify": "^10.0.5",
     "react-vertical-timeline-component": "^3.6.0",
+    "resend": "^0.16.0",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.5",
     "vertical-timeline-component-react": "^3.0.4"
