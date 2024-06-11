@@ -7,7 +7,8 @@ import { useSectionView } from "@/lib/hooks";
 import { SendEmail } from "@/actions/SendEmail";
 import SubmitBtn from "./Submit-btn";
 import toast from "react-hot-toast";
-import { useFormStatus } from "react-dom";
+
+
 
 export default function Contact() {
   const { ref } = useSectionView("Contact");
@@ -33,13 +34,13 @@ export default function Contact() {
       <SectionHeading>Contact me</SectionHeading>
 
       <p className="text-lg mb-8 text-center font-normal text-gray-500">
-      Get in touch
+        Get in touch
       </p>
 
       <p className="text-gray-700 dark:text-white/80">
         Please contact me directly at{" "}
         <span className="underline">
-        7339895383 or WhatsApp
+          7339895383 or WhatsApp
         </span>{" "}
         or through this form.
       </p>
