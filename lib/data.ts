@@ -3,9 +3,8 @@ import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import ecommerceImg from "@/public/e-commerce.png";
-import foodorederImg from "@/public/foodoreder.png";
-import minitubeImg from "@/public/minitube.png";
-
+import aisaasImg from "@/public/ai-saas.png";
+import netflixgpt from "@/public/netflix-gpt.png";
 
 export const links = [
   {
@@ -64,26 +63,30 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Cloud-AI-Saas",
+    description:
+      "A SaaS application, integrating cloudinary AI to enhance smart video preview and efficient media manage. Developed a scalable, server-side rendered application.",
+    tags: ["Next.js", "TypeScript", "Cloudinary", "Prisma", "NeonDB"],
+
+    imageUrl: aisaasImg,
+    url: "https://github.com/Dikshant441/AI-saas",
+  },
+  {
+    title: "CinemaBot-GPT",
+    description:
+      "A responsive movie streaming platform using the TMDB API for real-time movie data. Integrated GPT-3.5 API with TMDB for personalized movie suggestions.",
+    tags: ["ReactJS", "Redux", "TMDB", "OpenAI", "JavaScript"],
+    imageUrl: netflixgpt,
+    url: "https://github.com/Dikshant441/Netflixx-GPT",
+  },
+  {
     title: "Virtual Cart",
     description:
       "A full-featured e-commerce application using the MERN stack, enabling seamless shopping experiences with robust front-end and back-end integration.",
     tags: ["React", "Nodejs", "MongoDB", "Express", "material-ui"],
-    
+
     imageUrl: ecommerceImg,
-  },
-  {
-    title: "Swad Safarii",
-    description:
-      "A web application integrated with the Swiggy API, enabling users to browse menus, search local restaurants, and utilize add-to-cart functionality.",
-    tags: ["HTML","Tailwind", "JavaScript", "React", "Redux" , "API"],
-    imageUrl: foodorederImg,
-  },
-  {
-    title: "Min-tube",
-    description:
-      "A mini YouTube application featuring debouncing, video playback, live chat, and a Reddit-style comment section UI.",
-    tags: ["HTML","Tailwind", "JavaScript", "React", "Redux" , "You-tube API"],
-    imageUrl: minitubeImg,
+    url: "https://github.com/Dikshant441/E-commerce-MERN",
   },
 ] as const;
 
@@ -105,5 +108,5 @@ export const skillsData = [
   "SQL",
   "Postman",
   "Framer Motion",
-  "Google Firebase"
+  "Google Firebase",
 ] as const;
