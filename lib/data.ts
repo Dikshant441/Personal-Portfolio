@@ -1,6 +1,5 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import ecommerceImg from "@/public/e-commerce.png";
 import aisaasImg from "@/public/ai-saas.png";
@@ -16,6 +15,10 @@ export const links = [
     hash: "#about",
   },
   {
+    name: "Career",
+    hash: "#career",
+  },
+  {
     name: "Projects",
     hash: "#projects",
   },
@@ -23,10 +26,7 @@ export const links = [
     name: "Skills",
     hash: "#skills",
   },
-  {
-    name: "Experience",
-    hash: "#experience",
-  },
+  
   {
     name: "Contact",
     hash: "#contact",
@@ -34,31 +34,67 @@ export const links = [
 ] as const;
 
 export const experiencesData = [
+    {
+    title: "Software Developer Engineering - Web3 & Full Stack.",
+    location: "Company - Chainscore Labs",
+    description:"Co-developing the Join-Accumulate Machine (JAM), a major upgrade to the Polkadot ecosystem introduced by Gavin Wood. JAM combines Ethereum-style smart contracts with Polkadot’s parachain interoperability to build a highly efficient decentralized Web3 supercomputer.",
+    icon: React.createElement(CgWorkAlt),
+    date: "November/2024 - Present",
+    highlights: [
+      "Contributing to Web3 features across frontend and backend services",
+      "Implemented reusable UI components and API integrations",
+      "Collaborated in an agile team to ship incremental improvements",
+    ],
+    skills: [
+      "Blockchain",
+      "Web3",
+      "Python",
+      "C",
+      "QUIC Protocol",
+      "Redux",
+      "Jest",
+      "Auth0",
+      "Next.js",
+      "TypeScript",
+      "Node.js",      
+    ],
+  },
   {
-    title: "Software Developer Internship",
+    title: "Full Stack Internship",
     location: "at Elevatifier, Remote",
     description:
-      "I worked as a full-stack developer for 3 month as a Intern. I also upskilled to the full stack.",
+      "Responsible for developing and maintaining server-side logic, designing and implementing APIs, optimizing database performance, and collaborating with frontend developers to integrate user-facing elements with server-side logic.",
     icon: React.createElement(CgWorkAlt),
-    date: "Sept/2023 - Dec/2023",
+    date: "July/2024 - October/2024",
+    highlights: [
+      "Designed and integrated REST APIs with frontend",
+      "Optimized database queries and improved response times",
+      "Implemented form validation and error handling",
+    ],
+    skills: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "TypeScript",
+      "Git",
+      "Postman",
+    ],
   },
   {
-    title: "Kamla Nehru Institute of Technology - CGPA: 8.48",
+    title: "Kamla Nehru Institute of Technology - CGPA: 8.4",
     location: "Sultanpur, INDIA",
-    description:
-      "I am currently pursuing a BTech in Computer Science Engineering and have a strong passion for programming.",
+    description: "BEng, Graduated with a strong foundation in computer systems, software engineering, and information management. Throughout the program, I gained hands-on experience in full-stack development, data structures, and algorithms, which strengthened my problem-solving skills and technical expertise.",
     icon: React.createElement(LuGraduationCap),
-    date: "2020 - Present",
-  },
-  {
-    title: "Intermediate (12th) - Percentage: 86%",
-    location: "T.S.S Inter College, INDIA",
-    description:
-      "having completed my schooling with a focus on Physics, Chemistry, and Mathematics (PCM). My solid foundation in these core subjects has equipped me with strong analytical and problem-solving skills.",
-    // icon: React.createElement(FaReact),  icon for current working
-    icon: React.createElement(LuGraduationCap),
-    date: "2019 - 2020",
-  },
+    date: "2020/November - 2024/July",
+    highlights: [
+      "Completed core CS coursework (DSA, DBMS, OS, OOP)",
+      "Built multiple projects using MERN/Next.js stack",
+      "Active participation in coding and tech communities",
+    ],
+    skills: ["C++", "Data Structures and Algorithms", "DBMS", "OOP", "SQL", "CN", "OS"],
+  }
 ] as const;
 
 export const projectsData = [
@@ -90,23 +126,32 @@ export const projectsData = [
   },
 ] as const;
 
+// @/lib/data.ts
 export const skillsData = [
-  "C++",
-  "HTML",
-  "CSS",
-  "JavaScript",
   "TypeScript",
+  "JavaScript",
   "React",
   "Next.js",
   "Node.js",
-  "Git",
-  "Tailwind",
-  "Prisma",
   "MongoDB",
   "Redux",
   "Express",
-  "SQL",
+  "Git",
+  "Tailwind CSS",
+  "Prisma",
+  "PostgreSQL",
   "Postman",
-  "Framer Motion",
   "Google Firebase",
+  "C++",
+  "C",
+  "Python",
+  "HTML",
+  "CSS",
+  "Framer Motion",
+  "Docker",
+  "Linux",
+  "Vercel",
+  "Azure",
+  "AWS",
+  "FastAPI",
 ] as const;
