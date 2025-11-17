@@ -21,7 +21,7 @@ export default function About() {
     >
       <div className="text-center">
         <SectionHeading>Dev Story</SectionHeading>
-        <p className="mx-auto mb-10 mt-2 max-w-2xl text-lg font-normal text-gray-500">
+        <p className="mx-auto mb-10 -mt-3 max-w-2xl text-lg font-normal text-gray-500">
           A curious builder blending full‑stack engineering with blockchain
           systems.
         </p>
@@ -37,7 +37,7 @@ export default function About() {
             <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/10 to-cyan-500/20 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100" />
             <div className="rounded-xl bg-white/60 p-2 dark:bg-white/10">
               <Image
-                src="/about.jpg"
+                src="/aboutn.jpeg"
                 alt="Working at desk with multi-screen setup"
                 width={820}
                 height={1024}

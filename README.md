@@ -33,6 +33,13 @@ RESEND_API_KEY=your_resend_key_here
 ```
 Used in `actions/SendEmail.ts`.
 
+Optional:
+```env
+# Overrides (optional)
+RESEND_FROM="Portfolio <noreply@your-verified-domain.com>"
+RESEND_TO=your-inbox@example.com
+```
+
 ## Features
 
 | Feature | Description |
@@ -134,6 +141,15 @@ Update recipient email there. Uses React Email template at `email/Contact-form-e
 ## 🚀 Deployment
 
 Recommended: Vercel. Add env vars in the dashboard and deploy from GitHub.
+
+### Healthcheck
+
+After starting the app, you can verify server-side env presence without exposing secrets:
+
+- Page: `/health` (renders booleans)
+- API: `/api/health` (JSON with booleans)
+
+If any variable is shown as "missing", set it in `.env.local` (for local) or in your hosting provider's environment settings, then restart/redeploy.
 
 ## Contributing
 

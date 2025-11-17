@@ -180,7 +180,7 @@ export default function Intro() {
 
                 <a
                     className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 transition hover:scale-105 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
-                    href="/dikshant_singh.pdf"
+                    href="/dikshant_resume.pdf"
                     download
                     aria-label="Download CV"
                 >

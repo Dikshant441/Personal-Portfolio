@@ -7,17 +7,35 @@ import { useSectionView } from "@/lib/hooks";
 import { SendEmail } from "@/actions/SendEmail";
 import SubmitBtn from "./Submit-btn";
 import toast from "react-hot-toast";
+import { FiMail, FiMessageSquare } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 
 
 export default function Contact() {
   const { ref } = useSectionView("Contact");
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const [isPending, startTransition] = React.useTransition();
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const stagger = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
 
   return (
     <motion.section
       id="contact"
       ref={ref}
-      className="mb-16 w-[min(100%,38rem)] text-center"
+      className="relative mb-24 w-[min(100%,42rem)] mx-auto text-center"
       initial={{
         opacity: 0,
       }}
@@ -31,50 +49,136 @@ export default function Contact() {
         once: true,
       }}
     >
-      <SectionHeading>Contact me</SectionHeading>
+      {/* Soft spotlight background */}
+      <div className="pointer-events-none absolute -inset-x-10 -top-10 -bottom-10 -z-10 opacity-25 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]">
+        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-400/6 via-fuchsia-400/6 to-emerald-400/6 blur-3xl" />
+      </div>
 
-      <p className="text-lg mb-8 text-center font-normal text-gray-500">
+      <SectionHeading>
+        <span className="text-gray-700 dark:text-gray-200">Wanna Connect</span>
+      </SectionHeading>
+
+      <p className="text-base sm:text-lg mb-3 -mt-3 font-normal text-gray-600 dark:text-gray-300">
         Get in touch
       </p>
 
       <p className="text-gray-700 dark:text-white/80">
-        Please contact me directly at{" "}
-        <span className="underline">
-          7339895383 or WhatsApp
-        </span>{" "}
-        or through this form.
+        Prefer WhatsApp or email? Reach me at
+        <a
+          href="https://wa.me/917339895383"
+          target="_blank"
+          rel="noreferrer"
+          className="mx-1 underline decoration-dashed decoration-emerald-500/60 underline-offset-4 hover:text-emerald-600 dark:hover:text-emerald-400"
+        >
+          7339895383 (WhatsApp)
+        </a>
+        or use the form below.
       </p>
 
-      <form
-        className="mt-10 flex flex-col dark:text-black"
-        action={async (formData) => {
-          const { data, error } = await SendEmail(formData);
+      {/* Quick links */}
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 px-2 sm:px-0">
+        <a
+          href="mailto:singhdikshant200@gmail.com"
+          className="group relative overflow-hidden rounded-xl p-[1px] bg-gradient-to-r from-indigo-400/40 via-fuchsia-400/40 to-emerald-400/40 transition-transform hover:scale-[1.02]"
+        >
+          <div className="flex items-center justify-center gap-2 rounded-xl bg-white/85 dark:bg-white/5 backdrop-blur-md py-3 sm:py-3.5 text-sm sm:text-base text-gray-900 dark:text-gray-200 border border-white/40 dark:border-white/10">
+            <FiMail className="opacity-70" />
+            Email
+          </div>
+        </a>
+        <a
+          href="https://wa.me/917339895383"
+          target="_blank"
+          rel="noreferrer"
+          className="group relative overflow-hidden rounded-xl p-[1px] bg-gradient-to-r from-emerald-500/40 via-teal-500/40 to-lime-500/40 transition-transform hover:scale-[1.02]"
+        >
+          <div className="flex items-center justify-center gap-2 rounded-xl bg-white/85 dark:bg-white/5 backdrop-blur-md py-3 sm:py-3.5 text-sm sm:text-base text-gray-900 dark:text-gray-200 border border-white/40 dark:border-white/10">
+            <FaWhatsapp className="opacity-80" />
+            WhatsApp
+          </div>
+        </a>
+      </div>
 
-          if (error) {
-            toast.error(error);
-            return;
-          }
-
-          toast.success("Email sent successfully!");
-        }}
+      {/* Form card with gradient border */}
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="mt-8"
       >
-        <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder="Your email"
-        />
-        <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="message"
-          placeholder="Your message"
-          required
-          maxLength={5000}
-        />
-        <SubmitBtn />
-      </form>
+        <div className="relative mx-auto max-w-2xl">
+          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-indigo-400/35 via-fuchsia-400/35 to-emerald-400/35 blur-[2px]" />
+          <div className="relative rounded-2xl border border-white/40 dark:border-white/10 bg-white/85 dark:bg-white/5 backdrop-blur-md p-5 sm:p-6 shadow-lg">
+            <form
+              ref={formRef}
+              className="flex flex-col gap-4 sm:gap-5 text-left"
+              action={(formData) => {
+                startTransition(async () => {
+                  const { data, error } = await SendEmail(formData);
+
+                  if (error) {
+                    toast.error(error);
+                    return;
+                  }
+
+                  toast.success("Email sent successfully!");
+                  // Reset fields after successful submission
+                  formRef.current?.reset();
+                });
+              }}
+            >
+              {/* Email field */}
+              <motion.div variants={containerVariants}>
+                <label htmlFor="senderEmail" className="sr-only">
+                  Your email
+                </label>
+                <div className="relative">
+                  <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-500 dark:text-gray-400">
+                    <FiMail />
+                  </div>
+                  <input
+                    id="senderEmail"
+                    className="h-14 w-full rounded-xl borderBlack bg-white/90 dark:bg-white/5 px-10 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 outline-none transition focus:ring-2 focus:ring-fuchsia-400/50 focus:bg-white dark:focus:bg-white/10"
+                    name="senderEmail"
+                    type="email"
+                    required
+                    maxLength={500}
+                    placeholder="Your email"
+                    aria-label="Your email"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Message field */}
+              <motion.div variants={containerVariants}>
+                <label htmlFor="message" className="sr-only">
+                  Your message
+                </label>
+                <div className="relative">
+                  <div className="pointer-events-none absolute left-3 top-3 text-gray-500 dark:text-gray-400">
+                    <FiMessageSquare />
+                  </div>
+                  <textarea
+                    id="message"
+                    className="min-h-44 sm:min-h-52 w-full rounded-xl borderBlack bg-white/90 dark:bg-white/5 p-10 pt-10 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 outline-none transition focus:ring-2 focus:ring-indigo-400/50 focus:bg-white dark:focus:bg-white/10"
+                    name="message"
+                    placeholder="Your message"
+                    required
+                    maxLength={5000}
+                    aria-label="Your message"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Submit */}
+              <motion.div variants={containerVariants} className="flex justify-center pt-1">
+                <SubmitBtn />
+              </motion.div>
+            </form>
+          </div>
+        </div>
+      </motion.div>
     </motion.section>
   );
 }

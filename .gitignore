@@ -26,6 +26,12 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+.env.development
+.env.production
+.env.test
+# keep examples
+!.env.example
 
 # vercel
 .vercel
@@ -33,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE/editor
+.vscode/
+.idea/
+
+# caches
+.eslintcache
+
+# OS files
+Thumbs.db

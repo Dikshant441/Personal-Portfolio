@@ -86,9 +86,24 @@ const SKILL_ICON: Record<string, IconType> = {
   fastapi: SiFastapi,
 };
 
-type Category = "All" | "Languages" | "Frontend" | "Backend" | "Databases" | "Tools" | "Other";
+type Category =
+  | "All"
+  | "Languages"
+  | "Frontend"
+  | "Backend"
+  | "Databases"
+  | "Tools"
+  | "Other";
 
-const CATEGORIES: Category[] = ["All", "Languages", "Frontend", "Backend", "Databases", "Tools", "Other"];
+const CATEGORIES: Category[] = [
+  "All",
+  "Languages",
+  "Frontend",
+  "Backend",
+  "Databases",
+  "Tools",
+  "Other",
+];
 
 // === CATEGORY MAP (normalized keys) ===
 const SKILL_CATEGORY: Record<string, Category> = {
@@ -191,7 +206,7 @@ export default function Skills() {
       className="mb-24 max-w-[53rem] scroll-mt-24 text-center"
     >
       <SectionHeading>Areas of Expertise</SectionHeading>
-      <p className="text-lg mb-6 text-center font-normal text-gray-500">
+      <p className="text-lg mb-6 -mt-3 text-center font-normal text-gray-500">
         Browse by category or explore all
       </p>
 
@@ -220,9 +235,7 @@ export default function Skills() {
       <motion.ul
         className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 justify-center text-sm sm:text-base text-gray-800"
         variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
+        initial="show"
       >
         {filteredSkills.length === 0 ? (
           <li className="col-span-full py-6 text-sm text-gray-500 dark:text-white/60">
@@ -239,9 +252,11 @@ export default function Skills() {
                 variants={itemVariants}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-white borderBlack rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2 justify-center shadow-sm hover:shadow-md transition dark:bg-white/10 dark:text-white/80"
+                className="bg-white/90 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2 justify-center shadow-sm hover:shadow-md transition text-gray-900 dark:text-white/85"
               >
-                {Icon && <Icon className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />}
+                {Icon && (
+                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                )}
                 <span className="whitespace-nowrap">{skill}</span>
               </motion.li>
             );
