@@ -9,6 +9,7 @@ import SubmitBtn from "./Submit-btn";
 import toast from "react-hot-toast";
 import { FiMail, FiMessageSquare } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import { useFormState } from "react-dom";
 
 
 
@@ -16,6 +17,47 @@ export default function Contact() {
   const { ref } = useSectionView("Contact");
   const formRef = React.useRef<HTMLFormElement>(null);
   const [isPending, startTransition] = React.useTransition();
+  const submitToastId = React.useRef<string | null>(null);
+
+  type FormState = { success: boolean; error?: string };
+  const initialState: FormState = { success: false };
+  const [state, formAction] = useFormState<FormState, FormData>(
+    async (_prev: FormState, formData: FormData) => {
+      const { error } = await SendEmail(formData);
+      if (error) return { success: false, error };
+      return { success: true };
+    },
+    initialState
+  );
+
+  React.useEffect(() => {
+    if (state?.error) {
+      toast.error(
+        `Couldn't send right now. Please click Submit again. (${state.error})`,
+        { id: submitToastId.current ?? undefined }
+      );
+      submitToastId.current = null;
+    } else if (state?.success) {
+      toast.success("Email sent successfully!", {
+        id: submitToastId.current ?? undefined,
+      });
+      submitToastId.current = null;
+      formRef.current?.reset();
+    }
+  }, [state]);
+
+  const actionWithTransition = React.useCallback(
+    (formData: FormData) => {
+      // Show immediate feedback and invoke action in a transition
+      submitToastId.current = toast.loading("Sending your message…", {
+        id: submitToastId.current ?? undefined,
+      });
+      startTransition(() => {
+        formAction(formData);
+      });
+    },
+    [formAction]
+  );
 
   const containerVariants = {
     hidden: { opacity: 0, y: 12 },
@@ -113,20 +155,7 @@ export default function Contact() {
             <form
               ref={formRef}
               className="flex flex-col gap-4 sm:gap-5 text-left"
-              action={(formData) => {
-                startTransition(async () => {
-                  const { data, error } = await SendEmail(formData);
-
-                  if (error) {
-                    toast.error(error);
-                    return;
-                  }
-
-                  toast.success("Email sent successfully!");
-                  // Reset fields after successful submission
-                  formRef.current?.reset();
-                });
-              }}
+              action={actionWithTransition}
             >
               {/* Email field */}
               <motion.div variants={containerVariants}>
@@ -172,8 +201,14 @@ export default function Contact() {
               </motion.div>
 
               {/* Submit */}
-              <motion.div variants={containerVariants} className="flex justify-center pt-1">
+              <motion.div variants={containerVariants} className="flex flex-col items-center gap-2 pt-1">
                 <SubmitBtn />
+                {state?.error && (
+                  <p className="text-sm text-rose-600 dark:text-rose-400 text-center">
+                    We couldn’t send right now. Please click Submit again. If it keeps failing,
+                    try the WhatsApp or Email quick links above.
+                  </p>
+                )}
               </motion.div>
             </form>
           </div>

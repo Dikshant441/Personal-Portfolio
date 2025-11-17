@@ -12,7 +12,7 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="mb-24 max-w-[70rem] scroll-mt-24"
+      className="mb-24 mt-16 max-w-[70rem] scroll-mt-24"
       initial={{ opacity: 0, y: 70 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -21,7 +21,7 @@ export default function About() {
     >
       <div className="text-center">
         <SectionHeading>Dev Story</SectionHeading>
-        <p className="mx-auto mb-10 -mt-3 max-w-2xl text-lg font-normal text-gray-500">
+        <p className="mx-auto mb-10 max-w-2xl text-lg font-normal text-gray-500">
           A curious builder blending full‑stack engineering with blockchain
           systems.
         </p>

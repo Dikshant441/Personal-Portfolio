@@ -145,6 +145,9 @@ export default function Intro() {
             {/* Badges */}
             <div className="mt-5 flex flex-wrap items-center justify-center gap-2 px-4">
                 <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
+                    Open to Opportunities
+                </span>
+                <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
                     Full‑Stack Engineer
                 </span>
                 <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
@@ -153,9 +156,7 @@ export default function Intro() {
                 <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
                     Scalable Systems
                 </span>
-                <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-                    Open to Opportunities
-                </span>
+                
             </div>
 
             {/* CTAs */}

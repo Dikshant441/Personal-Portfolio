@@ -130,6 +130,10 @@ export const projectsData = [
 export const skillsData = [
   "TypeScript",
   "JavaScript",
+  "QUIC Protocol",
+  "Blockchain",
+  "Web3",
+  "AI",
   "React",
   "Next.js",
   "Node.js",
