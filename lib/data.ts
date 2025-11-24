@@ -4,6 +4,9 @@ import { LuGraduationCap } from "react-icons/lu";
 import ecommerceImg from "@/public/e-commerce.png";
 import aisaasImg from "@/public/ai-saas.png";
 import netflixgpt from "@/public/netflix-gpt.png";
+import progess from "@/public/progress.jpg";
+import telosx from "@/public/telosx.png";
+import jam from "@/public/jam.jpg";
 
 export const links = [
   {
@@ -99,6 +102,16 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Merge-Me",
+    description:
+      "Developing a full-stack matchmaking platform for developers, enabling seamless connections and real-time collaboration using a Tinder-style interaction model.",
+    tags: ["Node.js", "Express", "MongoDB", "React", "Redux", "Javascript"],
+
+    imageUrl: progess,
+    url: "https://github.com/Dikshant441/merge_me",
+
+  },
+  {
     title: "Cloud-AI-Saas",
     description:
       "A SaaS application, integrating cloudinary AI to enhance smart video preview and efficient media manage. Developed a scalable, server-side rendered application.",
@@ -106,6 +119,23 @@ export const projectsData = [
 
     imageUrl: aisaasImg,
     url: "https://github.com/Dikshant441/AI-saas",
+  },
+  {
+    title: "TelosX Landing Page",
+    description:
+      "Landing page for TelosX, an up and coming crypto trading platform. Featuring Framer Motion animations, localization, and a dynamic blog powered by the Sanity API.",
+    tags: ["Nextjs", "Sanity API", "Tailwind", "Motion", "TypeScript"],
+    imageUrl: telosx,
+    url: "https://telosx-landing-v2.vercel.app/",
+  },
+  {
+    title: "JAM Implementation Doc",
+    description:
+      "My Contributions to JAM Protocol Development => This guide documents the design choices, core components, and integration points required to run a functional JAM node, from block production and finality to PVM and peer‑to‑peer networking. (For code Repository not public yet)",
+    tags: ["Python", "FastAPI", "Blockchain", "QUIC Protocol"],
+
+    imageUrl: jam,
+    url: "https://tessera.chainscore.finance/",
   },
   {
     title: "CinemaBot-GPT",

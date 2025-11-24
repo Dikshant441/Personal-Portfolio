@@ -15,11 +15,9 @@ export default function Projects() {
       <p className="text-lg mb-8 -mt-3 text-center font-normal text-gray-500">
         Most recent works
       </p>
-      <div className="group">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projectsData.map((project, index) => (
-          <React.Fragment key={index}>
-            <Project {...project} />
-          </React.Fragment>
+          <Project key={index} {...project} />
         ))}
       </div>
     </section>

@@ -27,49 +27,46 @@ export default function Project({
     <motion.div
       ref={ref}
       style={{ scale: scaleProgess, opacity: opacityProgess }}
-      className="group mb-6 sm:mb-10 last:mb-0"
+      className="group mb-6 last:mb-0"
     >
       <section
-        className="relative max-w-[44rem] overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur transition-all hover:shadow-xl dark:bg-white/10 sm:h-[22rem] sm:pr-8 sm:group-even:pl-8"
+        className={`relative flex h-[24rem] max-w-[44rem] flex-col overflow-hidden rounded-2xl border bg-white/80 shadow-sm backdrop-blur transition-all hover:shadow-xl dark:bg-white/10
+        ${
+          title === "TelosX Landing Page" || title === "JAM Implementation Doc" || title === "Merge-Me"
+            ? "border-transparent bg-gradient-to-br from-indigo-500/80 via-sky-400/80 to-emerald-500/80 p-[1px] animate-pulse"
+            : "border-black/5"
+        }`}
       >
-        {/* Image side (decorative) */}
-        <Link href={url} target="_blank" aria-label={`Open ${title}`}>
-          <div
-            className="absolute hidden sm:block top-8 -right-36 h-[18rem] w-[30rem] overflow-hidden rounded-xl ring-1 ring-black/5 dark:ring-white/10 group-even:right-[initial] group-even:-left-36"
+        <div className="flex h-full flex-col rounded-[1rem] bg-white/90 dark:bg-zinc-900/90">
+        {/* Top: image (about 60%) */}
+        <div className="relative flex-[8]">
+          <Link
+            href={url}
+            target="_blank"
+            aria-label={`Open ${title}`}
+            className="relative block h-full w-full overflow-hidden"
           >
-            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-transparent via-black/0 to-black/10 dark:to-white/10" />
             <Image
               src={imageUrl}
               alt={title}
-              quality={95}
-              className="h-full w-full scale-100 object-cover transition-transform duration-300 ease-out group-hover:scale-[1.04] group-hover:-rotate-1 group-even:group-hover:rotate-1"
-              sizes="(max-width: 640px) 0px, 480px"
-              priority={false}
+              fill
+              sizes="(max-width: 768px) 100vw, 480px"
+              className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.04]"
             />
-          </div>
-        </Link>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent dark:from-black/60" />
+          </Link>
+        </div>
 
-        {/* Content side */}
-        <div className="relative z-20 flex h-full flex-col px-5 pt-5 pb-6 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[55%] sm:group-even:ml-[20rem]">
-          <h3 className="text-2xl font-semibold tracking-tight">{title}</h3>
-          <p className="mt-2 text-[0.96rem] leading-relaxed text-gray-700 dark:text-white/70">
-            {description}
-          </p>
-
-          {/* Tags */}
-          <ul className="mt-4 flex flex-wrap gap-2 sm:mt-auto">
-            {tags.map((tag, index) => (
-              <li
-                key={index}
-                className="rounded-full bg-black/80 px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white shadow-sm dark:bg-white/20 dark:text-white/80"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-
-          {/* CTA */}
-          <div className="mt-4">
+        {/* Bottom: details (about 40%) */}
+        <div className="px-5 pt-4 pb-5">
+          <div className="flex items-center justify-between gap-3">
+            <h3 className=" items-center gap-2 text-[1.4rem] font-semibold tracking-tight text-gray-900 dark:text-white">
+              
+              <span className="bg-gradient-to-r from-indigo-400 via-sky-300 to-emerald-300 bg-clip-text text-transparent">
+                {title}
+              </span>
+            </h3>
+          <div className="">
             <Link
               href={url}
               target="_blank"
@@ -87,6 +84,25 @@ export default function Project({
               </svg>
             </Link>
           </div>
+
+          </div>
+          <p className="mt-2 text-[0.96rem] leading-relaxed text-gray-700 dark:text-white/70 text-sm text-justify">
+            {description}
+          </p>
+
+          <ul className="mt-3 flex flex-wrap gap-1">
+            {tags.map((tag, index) => (
+              <li
+                key={index}
+                className="rounded-full bg-black/80 px-2 py-1 text-[0.7rem] uppercase tracking-wider text-white shadow-sm dark:bg-white/20 dark:text-white/80"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+
+          
+        </div>
         </div>
       </section>
     </motion.div>
