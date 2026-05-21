@@ -1,7 +1,7 @@
 import ecommerceImg from "@/public/e-commerce.png";
-import aisaasImg from "@/public/ai-saas.png";
 import netflixgpt from "@/public/netflix-gpt.png";
-import progress from "@/public/progress.jpg";
+import mergeMe from "@/public/merge-me.png";
+import quiver from "@/public/quiver.png";
 import telosx from "@/public/telosx.png";
 import jam from "@/public/jam.jpg";
 import type { ProjectShowcase } from "./types";
@@ -20,7 +20,7 @@ export const projectsData: readonly ProjectShowcase[] = [
       "Redux Toolkit for client state, RTK Query for data fetching",
     ],
     tech: ["Node.js", "Express", "MongoDB", "React", "Redux", "Socket.IO"],
-    imageUrl: progress,
+    imageUrl: mergeMe,
     videoUrl: "",
     repoUrl: "https://github.com/Dikshant441/merge_me",
     runLocally: `git clone https://github.com/Dikshant441/merge_me
@@ -38,27 +38,36 @@ npm install
 npm run dev`,
   },
   {
-    slug: "cloud-ai-saas",
-    title: "Cloud-AI-Saas",
-    tagline: "AI-powered media platform with smart previews.",
+    slug: "quiver",
+    title: "Quiver",
+    tagline: "A QUIC-native distributed pub/sub broker built from scratch.",
     description:
-      "A SaaS application that integrates Cloudinary AI for smart video previews and efficient media management. Server-side rendered for SEO and fast first paint, with Prisma + NeonDB for typed data access at the edge.",
+      "A real-time pub/sub message broker built entirely on QUIC instead of TCP — every peer connection is mutually authenticated with Ed25519 certificates, with 0-RTT session resumption for sub-millisecond reconnects. Designed around custom wire protocols multiplexed over QUIC streams, inspired by production blockchain networking patterns.",
     highlights: [
-      "Cloudinary AI for auto-cropping and smart video previews",
-      "Stripe-style usage metering on uploads",
-      "Prisma schema with NeonDB serverless Postgres",
-      "Next.js App Router with server actions for uploads",
+      "Custom application-layer protocol over QUIC streams via aioquic",
+      "Zero-trust mutual TLS using Ed25519 identity keys encoded as certificate SANs",
+      "0-RTT session resumption tickets for near-instant reconnects",
+      "ProtocolRouter dispatches stream prefixes (Publish / Subscribe) to a topic registry with persistent push fan-out",
     ],
-    tech: ["Next.js", "TypeScript", "Cloudinary", "Prisma", "NeonDB"],
-    imageUrl: aisaasImg,
+    tech: ["Python 3.13", "QUIC", "aioquic", "Ed25519", "asyncio"],
+    imageUrl: quiver,
     videoUrl: "",
-    repoUrl: "https://github.com/Dikshant441/AI-saas",
-    runLocally: `git clone https://github.com/Dikshant441/AI-saas
-cd AI-saas
-npm install
-cp .env.example .env   # CLOUDINARY_*, DATABASE_URL, NEXTAUTH_SECRET
-npx prisma migrate dev
-npm run dev`,
+    repoUrl: "https://github.com/Dikshant441/quiver",
+    runLocally: `git clone https://github.com/Dikshant441/quiver
+cd quiver
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+
+# Start the broker (auto-generates Ed25519 keys, binds UDP :4433)
+python run_broker.py -v
+
+# In a second terminal — subscribe
+python run_client.py sub system-alerts
+
+# In a third terminal — publish
+python run_client.py pub system-alerts "hello quiver"`,
   },
   {
     slug: "telosx",

@@ -27,7 +27,7 @@ export default function ProjectShowcase({ project, index }: Props) {
       className="relative overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur transition-shadow hover:shadow-xl dark:border-white/10 dark:bg-white/5 sm:p-8"
     >
       <div
-        className={`grid gap-8 lg:grid-cols-2 lg:items-center ${
+        className={`grid gap-8 lg:grid-cols-2 lg:items-stretch ${
           reverse ? "lg:[&>*:first-child]:order-2" : ""
         }`}
       >

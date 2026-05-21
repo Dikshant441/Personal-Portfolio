@@ -31,4 +31,125 @@ html {
   .borderBlack {
     @apply border border-black/10;
   }
-  
+
+@layer components {
+  .heading-mark {
+    background-image: linear-gradient(135deg, #818cf8 0%, #e879f9 55%, #fbbf24 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+  }
+
+  /* Variant: highlighter marker — text stays normal, yellow swipe behind */
+  .heading-mark-marker {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+  .heading-mark-marker::before {
+    content: "";
+    position: absolute;
+    inset: 12% -4% 8% -4%;
+    background: linear-gradient(105deg, transparent 0.5%, #fde047 1%, #fde047 99%, transparent 99.5%);
+    transform: skew(-8deg, -1deg);
+    z-index: -1;
+    border-radius: 4px;
+    opacity: 0.9;
+  }
+  .dark .heading-mark-marker::before {
+    background: linear-gradient(105deg, transparent 0.5%, #facc15 1%, #facc15 99%, transparent 99.5%);
+    opacity: 0.85;
+  }
+
+  /* Variant: italic serif — typographic accent, no color shift */
+  .heading-mark-italic {
+    font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: inherit;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    letter-spacing: -0.01em;
+  }
+
+  /* Variant: single brand accent — confident solid color */
+  .heading-mark-solid {
+    color: #059669;
+    background: none;
+    -webkit-text-fill-color: #059669;
+  }
+  .dark .heading-mark-solid {
+    color: #34d399;
+    -webkit-text-fill-color: #34d399;
+  }
+
+  /* Variant: squiggle underline — text normal, hand-drawn underline */
+  .heading-mark-squiggle {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    padding-bottom: 0.25em;
+  }
+  .heading-mark-squiggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6' preserveAspectRatio='none'><path d='M0 3 Q 5 0 10 3 T 20 3 T 30 3 T 40 3' fill='none' stroke='%23f97316' stroke-width='2' stroke-linecap='round'/></svg>");
+    background-repeat: repeat-x;
+    background-size: 14px 6px;
+  }
+  .dark .heading-mark-squiggle::after {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6' preserveAspectRatio='none'><path d='M0 3 Q 5 0 10 3 T 20 3 T 30 3 T 40 3' fill='none' stroke='%23fb923c' stroke-width='2' stroke-linecap='round'/></svg>");
+  }
+
+  /* Custom thin scrollbar for project modal */
+  .project-modal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+  .project-modal-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .project-modal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .project-modal-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+  }
+  .project-modal-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+  .dark .project-modal-scroll {
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  }
+  .dark .project-modal-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.18);
+  }
+  .dark .project-modal-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .grad-rule {
+    display: inline-block;
+    height: 2px;
+    width: 56px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #818cf8, #e879f9, #fbbf24);
+  }
+  .eyebrow {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .dark .eyebrow { color: rgba(255, 255, 255, 0.55); }
+}

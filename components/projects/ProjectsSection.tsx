@@ -2,8 +2,7 @@
 
 import SectionHeading from "@/components/Section-heading";
 import { useSectionView } from "@/lib/hooks";
-import { projectsData } from "./projects.data";
-import ProjectShowcase from "./ProjectShowcase";
+import ProjectsGrid from "./ProjectsGrid";
 
 export default function ProjectsSection() {
   const { ref } = useSectionView("Projects", 0.2);
@@ -14,16 +13,16 @@ export default function ProjectsSection() {
       id="projects"
       className="scroll-mt-24 mb-28 w-full max-w-5xl"
     >
-      <SectionHeading>Proof of Work</SectionHeading>
-      <p className="-mt-3 mb-12 text-center text-lg font-normal text-gray-500">
-        A closer look — demos, what they do, and how to run them locally.
-      </p>
+      <SectionHeading
+        eyebrow="Section 03 — Proof of work"
+        accent="built & shipped"
+        accentVariant="squiggle"
+        subtitle="Tap any card to see the brief, stack, and how to run it locally."
+      >
+        Things I&apos;ve built & shipped
+      </SectionHeading>
 
-      <div className="flex flex-col gap-10">
-        {projectsData.map((project, i) => (
-          <ProjectShowcase key={project.slug} project={project} index={i} />
-        ))}
-      </div>
+      <ProjectsGrid />
     </section>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
@@ -9,28 +9,10 @@ import { FaGithubSquare, FaTwitterSquare } from "react-icons/fa";
 import { SiNextdotjs, SiNodedotjs, SiMongodb, SiPolkadot } from "react-icons/si";
 import { useSectionView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import React from "react";
 
 export default function Intro() {
     const { ref } = useSectionView("Home", 0.5);
     const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-
-    const rotating = React.useMemo(
-        () => [
-            "Next.js, Nest.js",
-            "Node.js & Express",
-            "MERN Stack",
-            "Web3 & Blockchain",
-            "Scalable Systems",
-        ],
-        [
-        ]
-    );
-    const [idx, setIdx] = React.useState(0);
-    React.useEffect(() => {
-        const t = setInterval(() => setIdx((i) => (i + 1) % rotating.length), 2200);
-        return () => clearInterval(t);
-    }, [rotating.length]);
 
     return (
         <section
@@ -112,112 +94,117 @@ export default function Intro() {
                 </span>
             </motion.h1>
 
-            {/* Rotating subhead */}
-            <div className="mt-2 h-8 sm:h-9">
-                <AnimatePresence mode="popLayout" initial={false}>
-                    <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.35 }}
-                        className="px-4 text-base text-gray-600 dark:text-white/70 sm:text-xl"
-                    >
-                        Building with {rotating[idx]}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
+            {/* Tagline */}
+            <motion.p
+                className="mx-auto mt-5 max-w-3xl px-6 text-base text-gray-700 dark:text-white/80 sm:text-lg"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.03 }}
+            >
+                <span className="font-semibold text-gray-900 dark:text-white">Software Engineer</span>
+                <span className="mx-2 text-gray-400 dark:text-white/40">•</span>
+                <span>Building systems across the stack — frontend to protocol-level.</span>
+            </motion.p>
 
-            {/* About blurb (from your text) */}
+            {/* Intro blurb */}
             <motion.p
                 className="mx-auto mt-4 max-w-3xl px-6 text-[0.98rem] leading-relaxed text-gray-700 dark:text-white/70 sm:text-lg"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
             >
-                I’m a passionate Software Developer from India focused on building scalable, high-performance applications.
-                I specialize in full‑stack development with Next.js, Nest.js, Node.js, and the MERN stack—turning complex ideas
-                into clean, efficient solutions. I’m also deeply into blockchain, exploring protocols like Bitcoin, Ethereum,
-                and Polkadot, and building Web3 and decentralized systems. I’m eager to contribute to impactful projects and
-                grow within innovative engineering teams.
+                Hi, I&apos;m Dikshant — a Software Development Engineer based in Pune with 1.5+ years of experience
+                shipping production software, from real-time web apps in TypeScript to low-level protocol code in C
+                and Python. Currently an SDE at{" "}
+                <span className="font-medium text-gray-900 dark:text-white">Chainscore Labs</span>, and actively looking
+                for SDE / Software Engineer roles focused on backend, distributed systems, or systems software.
             </motion.p>
 
             {/* Badges */}
             <div className="mt-5 flex flex-wrap items-center justify-center gap-2 px-4">
-                <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-                    Open to Opportunities
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-700 backdrop-blur dark:text-emerald-300">
+                    <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                    </span>
+                    Open to SDE / SDE-2 roles
                 </span>
                 <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-                    Full‑Stack Engineer
+                    Backend & Distributed Systems
                 </span>
                 <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-                    Web3 & Blockchain
+                    Networking & Protocols
                 </span>
                 <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-                    Scalable Systems
+                    Based in Pune, India
                 </span>
-                
             </div>
 
             {/* CTAs */}
             <motion.div
-                className="mt-6 flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium sm:flex-row"
+                className="mt-6 flex flex-col items-center justify-center gap-3 px-4 text-lg font-medium"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
             >
-                <Link
-                    href="#contact"
-                    className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white transition hover:scale-105 hover:bg-black focus:scale-105 active:scale-100 dark:bg-white dark:text-gray-900"
-                    onClick={() => {
-                        setActiveSection("Contact");
-                        setTimeOfLastClick(Date.now());
-                    }}
-                    aria-label="Contact me"
-                >
-                    Contact me
-                    <BsArrowRight className="transition group-hover:translate-x-1" />
-                </Link>
+                {/* Primary buttons — stack on mobile, row on desktop */}
+                <div className="flex w-full flex-col items-center justify-center gap-2 sm:w-auto sm:flex-row">
+                    <Link
+                        href="#contact"
+                        className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white transition hover:scale-105 hover:bg-black focus:scale-105 active:scale-100 dark:bg-white dark:text-gray-900"
+                        onClick={() => {
+                            setActiveSection("Contact");
+                            setTimeOfLastClick(Date.now());
+                        }}
+                        aria-label="Contact me"
+                    >
+                        Contact me
+                        <BsArrowRight className="transition group-hover:translate-x-1" />
+                    </Link>
 
-                <a
-                    className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 transition hover:scale-105 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
-                    href="/dikshant_resume.pdf"
-                    download
-                    aria-label="Download CV"
-                >
-                    Download CV
-                    <HiDownload className="opacity-70 transition group-hover:translate-y-0.5" />
-                </a>
+                    <a
+                        className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 transition hover:scale-105 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
+                        href="/dikshant_resume.pdf"
+                        download
+                        aria-label="Download CV"
+                    >
+                        Download CV
+                        <HiDownload className="opacity-70 transition group-hover:translate-y-0.5" />
+                    </a>
+                </div>
 
-                <a
-                    className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 transition hover:scale-105 hover:text-gray-950 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
-                    href="https://www.linkedin.com/in/dikshant-singh/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn"
-                >
-                    <BsLinkedin />
-                </a>
+                {/* Social icons — always row, below the buttons */}
+                <div className="flex items-center justify-center gap-2">
+                    <a
+                        className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white p-3 text-[1.25rem] text-gray-700 transition hover:scale-105 hover:text-gray-950 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
+                        href="https://www.linkedin.com/in/dikshant-singh/"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="LinkedIn"
+                    >
+                        <BsLinkedin />
+                    </a>
 
-                <a
-                    className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white p-4 text-[1.35rem] text-gray-700 transition hover:scale-105 hover:text-gray-950 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
-                    href="https://github.com/Dikshant441"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="GitHub"
-                >
-                    <FaGithubSquare />
-                </a>
+                    <a
+                        className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white p-3 text-[1.35rem] text-gray-700 transition hover:scale-105 hover:text-gray-950 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
+                        href="https://github.com/Dikshant441"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="GitHub"
+                    >
+                        <FaGithubSquare />
+                    </a>
 
-                <a
-                    className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white p-4 text-[1.35rem] text-gray-700 transition hover:scale-105 hover:text-gray-950 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
-                    href="https://x.com/Dikshant441"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Twitter/X"
-                >
-                    <FaTwitterSquare />
-                </a>
+                    <a
+                        className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white p-3 text-[1.35rem] text-gray-700 transition hover:scale-105 hover:text-gray-950 focus:scale-105 active:scale-100 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
+                        href="https://x.com/Dikshant441"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Twitter/X"
+                    >
+                        <FaTwitterSquare />
+                    </a>
+                </div>
             </motion.div>
         </section>
     );

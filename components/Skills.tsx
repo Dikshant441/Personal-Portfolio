@@ -205,10 +205,14 @@ export default function Skills() {
       ref={ref}
       className="mb-24 max-w-[53rem] scroll-mt-24 text-center"
     >
-      <SectionHeading>Areas of Expertise</SectionHeading>
-      <p className="text-lg mb-6 -mt-3 text-center font-normal text-gray-500">
-        Browse by category or explore all
-      </p>
+      <SectionHeading
+        eyebrow="Section 04 — Toolkit"
+        accent="reach for"
+        accentVariant="solid"
+        subtitle="Browse by category or explore all."
+      >
+        What I reach for
+      </SectionHeading>
 
       {/* Category Pills */}
       <div className="mb-6 flex flex-wrap items-center justify-center gap-2">

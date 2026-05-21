@@ -25,7 +25,7 @@ export default function ProjectMedia({ videoUrl, imageUrl, title }: Props) {
     const ytEmbed = getYouTubeEmbed(videoUrl);
     if (ytEmbed) {
       return (
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black lg:aspect-auto lg:h-full lg:min-h-[420px]">
           <iframe
             src={ytEmbed}
             title={`${title} demo video`}
@@ -41,7 +41,7 @@ export default function ProjectMedia({ videoUrl, imageUrl, title }: Props) {
     if (/\.(mp4|webm|mov)$/i.test(videoUrl)) {
       return (
         <div
-          className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black"
+          className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black lg:aspect-auto lg:h-full lg:min-h-[420px]"
           onMouseEnter={() => {
             setHovered(true);
             videoRef.current?.play().catch(() => {});
@@ -80,15 +80,23 @@ export default function ProjectMedia({ videoUrl, imageUrl, title }: Props) {
   }
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
+    <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-gray-900 lg:aspect-auto lg:h-full lg:min-h-[420px]">
+      <Image
+        src={imageUrl}
+        alt=""
+        aria-hidden
+        fill
+        sizes="(max-width: 1024px) 100vw, 600px"
+        className="scale-125 object-cover blur-2xl opacity-60"
+      />
+      <div className="absolute inset-0 bg-black/20" />
       <Image
         src={imageUrl}
         alt={title}
         fill
         sizes="(max-width: 1024px) 100vw, 600px"
-        className="object-cover"
+        className="relative object-contain"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
     </div>
   );
 }

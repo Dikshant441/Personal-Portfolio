@@ -1,127 +1,173 @@
-'use client'
-import React from 'react'
-import { motion } from 'framer-motion'
-import SectionHeading from './Section-heading';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css'
-import { experiencesData } from '@/lib/data'
-import { useSectionView } from '@/lib/hooks';
-import { useTheme } from "@/context/Theme-Context";
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import SectionHeading from "./Section-heading";
+import { experiencesData } from "@/lib/data";
+import { useSectionView } from "@/lib/hooks";
 
 export default function Experience() {
-  const { ref } = useSectionView("Career");
-  const { theme } = useTheme();
-
-  // Framer Motion variants for smooth, tasteful reveals
-  const cardVariants = {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0 },
-  };
-  const listVariants = {
-    hidden: { opacity: 0, y: 8 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { staggerChildren: 0.06, when: 'beforeChildren' },
-    },
-  };
-  const listItemVariants = {
-    hidden: { opacity: 0, y: 6 },
-    show: { opacity: 1, y: 0 },
-  };
+  const { ref } = useSectionView("Career", 0.2);
 
   return (
-  <section id="career" ref={ref} className="relative  mb-16 -mt-6">
-      <SectionHeading> Career Highlights </SectionHeading>
+    <section
+      id="career"
+      ref={ref}
+      className="relative scroll-mt-24 mb-24 w-full max-w-4xl"
+    >
+      <SectionHeading
+        eyebrow="Section 02 — Journey"
+        accent="been & built"
+        accentVariant="italic"
+        subtitle="Roles, rooms, and what shipped out of each."
+      >
+        Where I&apos;ve been & built
+      </SectionHeading>
 
       {/* subtle decorative gradient background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-purple-500/[0.04] to-transparent"
+      />
 
-      <VerticalTimeline lineColor={theme === "light" ? "#9ca3af" : "rgba(255, 255, 255, 0.2)"}>
-        {experiencesData.map((item, index: number) => (
-          <React.Fragment key={index}>
-            <VerticalTimelineElement
-              visible={true}
-              contentStyle={{
-                background:
-                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
-                boxShadow: "none",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
-                textAlign: "left",
-                padding: "1.3rem 2rem",
-              }}
-              contentArrowStyle={{
-                borderRight:
-                  theme === "light"
-                    ? "0.4rem solid #9ca3af"
-                    : "0.4rem solid rgba(255, 255, 255, 0.5)",
-              }}
-              date={item.date}
-              dateClassName="text-[0.8rem] font-medium text-gray-500 dark:text-gray-400"
-              icon={item.icon}
-              iconStyle={{
-                background:
-                  theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
-                fontSize: "1.5rem",
-                border: theme === "light" ? "1px solid #e5e7eb" : "1px solid rgba(255, 255, 255, 0.15)",
-              }}
+      <ol className="relative mt-6 pl-6 sm:pl-10">
+        {/* Vertical rail */}
+        <div
+          aria-hidden
+          className="absolute left-[10px] top-3 bottom-3 w-px bg-gradient-to-b from-indigo-400/40 via-gray-300 to-emerald-400/40 dark:via-white/15 sm:left-[18px]"
+        />
+
+        {experiencesData.map((item, index) => {
+          const isCurrent = "current" in item && item.current === true;
+          const isEducation = item.type === "education";
+
+          return (
+            <motion.li
+              key={`${item.company}-${index}`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+              className="relative mb-10 last:mb-0"
             >
-              <motion.div
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
+              {/* Node on the rail */}
+              <span
+                aria-hidden
+                className={`absolute -left-6 top-2 flex h-5 w-5 items-center justify-center rounded-full ring-4 ring-gray-50 dark:ring-gray-900 sm:-left-10 sm:h-7 sm:w-7 ${
+                  isCurrent
+                    ? "bg-emerald-500 text-white"
+                    : isEducation
+                    ? "bg-amber-500/90 text-white"
+                    : "bg-indigo-500 text-white"
+                }`}
               >
-                <h3 className="font-semibold capitalize">{item.title}</h3>
-                <p className="font-normal !mt-0">{item.location}</p>
-                <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75 text-justify">
+                <span className="text-[0.55rem] sm:text-[0.7rem]">
+                  {item.icon}
+                </span>
+                {isCurrent && (
+                  <span className="absolute inset-0 -z-10 rounded-full bg-emerald-400 opacity-60 animate-ping" />
+                )}
+              </span>
+
+              {/* Date + tag row */}
+              <div className="mb-2 flex flex-wrap items-center gap-2 text-xs">
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-gray-500 dark:text-white/55">
+                  {item.date}
+                </span>
+                {isCurrent && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-emerald-700 ring-1 ring-emerald-500/30 dark:text-emerald-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    Current
+                  </span>
+                )}
+                {isEducation && (
+                  <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-amber-700 ring-1 ring-amber-500/30 dark:text-amber-300">
+                    Education
+                  </span>
+                )}
+              </div>
+
+              {/* Card */}
+              <div
+                className={`group rounded-2xl border bg-white/80 p-5 shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-lg dark:bg-white/[0.04] sm:p-6 ${
+                  isCurrent
+                    ? "border-emerald-500/30 dark:border-emerald-400/30"
+                    : "border-black/5 dark:border-white/10"
+                }`}
+              >
+                <h3 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white sm:text-xl">
+                  {item.title}
+                </h3>
+                <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm font-medium text-indigo-600 dark:text-indigo-300">
+                  <span>{item.company}</span>
+                  <span aria-hidden className="text-gray-400 dark:text-white/30">
+                    •
+                  </span>
+                  <span className="text-gray-600 dark:text-white/60">
+                    {item.location}
+                  </span>
+                </p>
+
+                <p className="mt-3 text-[0.95rem] leading-relaxed text-gray-700 dark:text-white/75">
                   {item.description}
                 </p>
 
-                {Array.isArray((item as any).highlights) && (item as any).highlights.length > 0 && (
-                  <motion.ul
-                    className="mt-3 list-disc pl-5 space-y-1 text-gray-700 dark:text-white/75"
-                    variants={listVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.35 }}
-                    transition={{ delay: index * 0.08 + 0.1 }}
-                  >
-                    {(item as any).highlights.map((point: string, i: number) => (
-                      <motion.li key={i} variants={listItemVariants}>{point}</motion.li>
+                {item.highlights && item.highlights.length > 0 && (
+                  <ul className="mt-4 space-y-2">
+                    {item.highlights.map((h, i) => (
+                      <li
+                        key={i}
+                        className="flex gap-2.5 text-[0.9rem] text-gray-700 dark:text-white/75"
+                      >
+                        <CheckIcon
+                          className={
+                            isCurrent
+                              ? "text-emerald-500 dark:text-emerald-400"
+                              : isEducation
+                              ? "text-amber-500 dark:text-amber-400"
+                              : "text-indigo-500 dark:text-indigo-400"
+                          }
+                        />
+                        <span>{h}</span>
+                      </li>
                     ))}
-                  </motion.ul>
+                  </ul>
                 )}
 
-                {Array.isArray((item as any).skills) && (item as any).skills.length > 0 && (
-                  <motion.div
-                    className="mt-3 flex flex-wrap gap-2"
-                    variants={listVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.35 }}
-                    transition={{ delay: index * 0.08 + 0.15 }}
-                  >
-                    {(item as any).skills.map((skill: string, i: number) => (
-                      <motion.span
-                        key={i}
-                        variants={listItemVariants}
-                        className="inline-block rounded-full bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-white/10 dark:text-white/80"
-                        whileHover={{ scale: 1.06 }}
-                        whileTap={{ scale: 0.98 }}
-                        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                {item.skills && item.skills.length > 0 && (
+                  <ul className="mt-5 flex flex-wrap gap-1.5">
+                    {item.skills.map((skill) => (
+                      <li
+                        key={skill}
+                        className="rounded-full border border-black/10 bg-white px-2.5 py-0.5 font-mono text-[0.65rem] font-medium uppercase tracking-wider text-gray-700 dark:border-white/15 dark:bg-white/5 dark:text-white/75"
                       >
                         {skill}
-                      </motion.span>
+                      </li>
                     ))}
-                  </motion.div>
+                  </ul>
                 )}
-              </motion.div>
-            </VerticalTimelineElement>
-          </React.Fragment>
-        ))}
-      </VerticalTimeline>
+              </div>
+            </motion.li>
+          );
+        })}
+      </ol>
     </section>
+  );
+}
+
+function CheckIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      className={`mt-[0.25rem] h-4 w-4 flex-shrink-0 ${className}`}
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M16.704 5.293a1 1 0 010 1.414l-7.5 7.5a1 1 0 01-1.414 0l-3.5-3.5a1 1 0 011.414-1.414L8.5 12.086l6.79-6.793a1 1 0 011.414 0z"
+        clipRule="evenodd"
+      />
+    </svg>
   );
 }
