@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import type { ProjectShowcase as ProjectType } from "./types";
 import ProjectMedia from "./ProjectMedia";
-import RunLocallyBlock from "./RunLocallyBlock";
 
 type Props = {
   project: ProjectType;
@@ -14,7 +13,6 @@ type Props = {
 
 export default function ProjectShowcase({ project, index }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(false);
   const reverse = index % 2 === 1;
 
   return (
@@ -85,7 +83,7 @@ export default function ProjectShowcase({ project, index }: Props) {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-white/90"
               >
-                Live Demo
+                {project.demoLabel ?? "Live Demo"}
                 <ArrowIcon />
               </Link>
             )}
@@ -100,34 +98,7 @@ export default function ProjectShowcase({ project, index }: Props) {
                 View Code
               </Link>
             )}
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              aria-expanded={open}
-              className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-black/5 dark:text-white/80 dark:hover:bg-white/10"
-            >
-              {open ? "Hide" : "Show"} run instructions
-              <svg
-                className={`h-4 w-4 transition-transform ${
-                  open ? "rotate-180" : ""
-                }`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 011.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
           </div>
-
-          {open && (
-            <div className="mt-4">
-              <RunLocallyBlock code={project.runLocally} />
-            </div>
-          )}
         </div>
       </div>
     </motion.article>

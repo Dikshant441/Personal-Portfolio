@@ -11,5 +11,5 @@ export type ProjectShowcase = {
   imageUrl: StaticImageData;
   repoUrl?: string;
   demoUrl?: string;
-  runLocally: string;
+  demoLabel?: string;
 };

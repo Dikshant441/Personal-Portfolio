@@ -19,23 +19,11 @@ export const projectsData: readonly ProjectShowcase[] = [
       "Real-time messaging via WebSockets (Socket.IO)",
       "Redux Toolkit for client state, RTK Query for data fetching",
     ],
-    tech: ["Node.js", "Express", "MongoDB", "React", "Redux", "Socket.IO"],
+    tech: ["Node.js", "Express", "Supabase", "React", "Redux", "Socket.IO"],
     imageUrl: mergeMe,
     videoUrl: "",
+    demoUrl: "https://mergeme.xyz",
     repoUrl: "https://github.com/Dikshant441/merge_me",
-    runLocally: `git clone https://github.com/Dikshant441/merge_me
-cd merge_me
-
-# Backend
-cd backend
-npm install
-cp .env.example .env   # fill MONGO_URI, JWT_SECRET
-npm run dev
-
-# Frontend
-cd ../frontend
-npm install
-npm run dev`,
   },
   {
     slug: "quiver",
@@ -53,48 +41,11 @@ npm run dev`,
     imageUrl: quiver,
     videoUrl: "",
     repoUrl: "https://github.com/Dikshant441/quiver",
-    runLocally: `git clone https://github.com/Dikshant441/quiver
-cd quiver
-
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-
-# Start the broker (auto-generates Ed25519 keys, binds UDP :4433)
-python run_broker.py -v
-
-# In a second terminal — subscribe
-python run_client.py sub system-alerts
-
-# In a third terminal — publish
-python run_client.py pub system-alerts "hello quiver"`,
-  },
-  {
-    slug: "telosx",
-    title: "TelosX Landing Page",
-    tagline: "High-conversion crypto landing page with i18n + CMS.",
-    description:
-      "Marketing site for TelosX, an emerging crypto trading platform. Animated hero powered by Framer Motion, full localization, and a dynamic blog backed by Sanity CMS so the marketing team can ship copy without code changes.",
-    highlights: [
-      "Sanity Studio integration for content-managed blog",
-      "Locale-aware routing with next-intl",
-      "Framer Motion scroll-driven animations",
-      "Lighthouse 95+ on perf and accessibility",
-    ],
-    tech: ["Next.js", "Sanity API", "Tailwind", "Framer Motion", "TypeScript"],
-    imageUrl: telosx,
-    videoUrl: "",
-    demoUrl: "https://telosx-landing-v2.vercel.app/",
-    runLocally: `# Repo is private — contact me for access.
-# Once cloned:
-npm install
-cp .env.example .env.local   # SANITY_PROJECT_ID, SANITY_DATASET
-npm run dev`,
   },
   {
     slug: "jam-protocol",
-    title: "JAM Implementation Doc",
-    tagline: "Co-developing the Join-Accumulate Machine for Polkadot.",
+    title: "JAM Protocol Implementation",
+    tagline: "The Join-Accumulate Machine for Polkadot.",
     description:
       "Contributions to JAM Protocol — a major upgrade to the Polkadot ecosystem proposed by Gavin Wood. Documentation covers design choices, core components, and integration points required to run a functional JAM node, from block production and finality to PVM and peer-to-peer networking.",
     highlights: [
@@ -107,8 +58,8 @@ npm run dev`,
     imageUrl: jam,
     videoUrl: "",
     demoUrl: "https://tessera.chainscore.finance/",
-    runLocally: `# Source not public yet. Documentation is hosted at:
-# https://tessera.chainscore.finance/`,
+    demoLabel: "Docs",
+    repoUrl: "https://github.com/Chainscore/tessera",
   },
   {
     slug: "cinemabot-gpt",
@@ -126,11 +77,23 @@ npm run dev`,
     imageUrl: netflixgpt,
     videoUrl: "",
     repoUrl: "https://github.com/Dikshant441/Netflixx-GPT",
-    runLocally: `git clone https://github.com/Dikshant441/Netflixx-GPT
-cd Netflixx-GPT
-npm install
-# Add VITE_TMDB_KEY and VITE_OPENAI_KEY to .env.local
-npm run dev`,
+  },
+  {
+    slug: "telosx",
+    title: "TelosX Landing Page",
+    tagline: "High-conversion crypto landing page with i18n + CMS.",
+    description:
+      "Marketing site for TelosX, an emerging crypto trading platform. Animated hero powered by Framer Motion, full localization, and a dynamic blog backed by Sanity CMS so the marketing team can ship copy without code changes.",
+    highlights: [
+      "Sanity Studio integration for content-managed blog",
+      "Locale-aware routing with next-intl",
+      "Framer Motion scroll-driven animations",
+      "Lighthouse 95+ on perf and accessibility",
+    ],
+    tech: ["Next.js", "Sanity API", "Tailwind", "Framer Motion", "TypeScript"],
+    imageUrl: telosx,
+    videoUrl: "",
+    demoUrl: "https://telosx-landing-v2.vercel.app/",
   },
   {
     slug: "virtual-cart",
@@ -148,18 +111,5 @@ npm run dev`,
     imageUrl: ecommerceImg,
     videoUrl: "",
     repoUrl: "https://github.com/Dikshant441/E-commerce-MERN",
-    runLocally: `git clone https://github.com/Dikshant441/E-commerce-MERN
-cd E-commerce-MERN
-
-# Backend
-cd backend
-npm install
-cp .env.example .env   # MONGO_URI, JWT_SECRET, STRIPE_KEY
-npm run dev
-
-# Frontend
-cd ../frontend
-npm install
-npm start`,
   },
 ];

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React from "react";
 import SectionHeading from "./Section-heading";
 import { skillsData } from "@/lib/data";
 import { useSectionView } from "@/lib/hooks";
@@ -16,6 +16,7 @@ import {
   SiRedux,
   SiExpress,
   SiGit,
+  SiGithub,
   SiTailwindcss,
   SiPrisma,
   SiMysql,
@@ -30,26 +31,31 @@ import {
   SiDocker,
   SiLinux,
   SiPostgresql,
+  SiSupabase,
   SiVercel,
   SiMicrosoftazure,
   SiAmazonaws,
   SiFastapi,
+  SiNestjs,
+  SiGreensock,
+  SiAuth0,
+  SiPolkadot,
+  SiRust,
+  SiGo,
+  SiJest,
+  SiFigma,
+  SiClerk,
+  SiCloudinary,
+  SiRazorpay,
+  SiMui,
+  SiVite,
+  SiReactrouter,
+  SiDaisyui,
+  SiSocketdotio,
+  SiJsonwebtokens,
+  SiOpenai,
 } from "react-icons/si";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05, delayChildren: 0.05 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0 },
-};
-
-// === ICON MAP (normalized) ===
 const SKILL_ICON: Record<string, IconType> = {
   typescript: SiTypescript,
   javascript: SiJavascript,
@@ -58,146 +64,111 @@ const SKILL_ICON: Record<string, IconType> = {
   "node.js": SiNodedotjs,
   mongodb: SiMongodb,
   redux: SiRedux,
+  "redux toolkit": SiRedux,
   express: SiExpress,
+  nestjs: SiNestjs,
   git: SiGit,
+  github: SiGithub,
   tailwind: SiTailwindcss,
   "tailwind css": SiTailwindcss,
+  daisyui: SiDaisyui,
+  "material ui": SiMui,
+  mui: SiMui,
+  vite: SiVite,
+  "react router": SiReactrouter,
   prisma: SiPrisma,
   sql: SiMysql,
   mysql: SiMysql,
   postgresql: SiPostgresql,
+  neondb: SiPostgresql,
+  supabase: SiSupabase,
   postman: SiPostman,
   "google firebase": SiFirebase,
   firebase: SiFirebase,
   "c++": SiCplusplus,
   c: SiC,
   python: SiPython,
+  rust: SiRust,
+  go: SiGo,
   html: SiHtml5,
   css: SiCss3,
   "framer motion": SiFramer,
+  gsap: SiGreensock,
   docker: SiDocker,
   linux: SiLinux,
   vercel: SiVercel,
   azure: SiMicrosoftazure,
   aws: SiAmazonaws,
-  "vercel deployments": SiVercel,
-  "azure deployments": SiMicrosoftazure,
-  "aws deployments": SiAmazonaws,
+  "aws ec2": SiAmazonaws,
   fastapi: SiFastapi,
+  auth0: SiAuth0,
+  clerk: SiClerk,
+  jwt: SiJsonwebtokens,
+  polkadot: SiPolkadot,
+  websockets: SiSocketdotio,
+  websocket: SiSocketdotio,
+  jest: SiJest,
+  figma: SiFigma,
+  cloudinary: SiCloudinary,
+  razorpay: SiRazorpay,
+  openai: SiOpenai,
 };
 
-type Category =
-  | "All"
-  | "Languages"
-  | "Frontend"
-  | "Backend"
-  | "Databases"
-  | "Tools"
-  | "Other";
-
-const CATEGORIES: Category[] = [
-  "All",
-  "Languages",
-  "Frontend",
-  "Backend",
-  "Databases",
-  "Tools",
-  "Other",
-];
-
-// === CATEGORY MAP (normalized keys) ===
-const SKILL_CATEGORY: Record<string, Category> = {
-  // Languages
-  "c++": "Languages",
-  c: "Languages",
-  python: "Languages",
-  javascript: "Languages",
-  typescript: "Languages",
-
-  // Frontend
-  html: "Frontend",
-  css: "Frontend",
-  react: "Frontend",
-  "next.js": "Frontend",
-  tailwind: "Frontend",
-  "tailwind css": "Frontend",
-  redux: "Frontend",
-  "framer motion": "Frontend",
-
-  // Backend
-  "node.js": "Backend",
-  express: "Backend",
-  prisma: "Backend",
-  fastapi: "Backend",
-  "google firebase": "Backend",
-  firebase: "Backend",
-
-  // Databases
-  mongodb: "Databases",
-  postgresql: "Databases",
-  mysql: "Databases",
-  sql: "Databases",
-
-  // Tools
-  git: "Tools",
-  postman: "Tools",
-  docker: "Tools",
-  linux: "Tools",
-  vercel: "Tools",
-  azure: "Tools",
-  aws: "Tools",
-  "vercel deployments": "Tools",
-  "azure deployments": "Tools",
-  "aws deployments": "Tools",
-
-  // Other
-  blockchain: "Other",
-  web3: "Other",
-  "quic protocol": "Other",
-  ai: "Other",
-};
-
-// Normalize function
 const normalize = (s: string) => s.trim().toLowerCase();
 
-// Pre-normalized lookup maps
-const NORMALIZED_SKILL_CATEGORY = SKILL_CATEGORY;
-const NORMALIZED_SKILL_ICON = SKILL_ICON;
+// Split into three rows so the marquee feels dense but readable.
+const third = Math.ceil(skillsData.length / 3);
+const rowA = skillsData.slice(0, third);
+const rowB = skillsData.slice(third, third * 2);
+const rowC = skillsData.slice(third * 2);
+
+type MarqueeRowProps = {
+  items: readonly string[];
+  direction: "ltr" | "rtl";
+  duration: number;
+};
+
+function MarqueeRow({ items, direction, duration }: MarqueeRowProps) {
+  // Duplicate the list so the loop is seamless.
+  const loop = [...items, ...items];
+  const from = direction === "ltr" ? "-50%" : "0%";
+  const to = direction === "ltr" ? "0%" : "-50%";
+
+  return (
+    <div className="relative overflow-hidden py-2">
+      {/* edge fades */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-900" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-gray-50 to-transparent dark:from-gray-900" />
+
+      <motion.ul
+        className="flex w-max gap-3"
+        initial={{ x: from }}
+        animate={{ x: to }}
+        transition={{
+          duration,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      >
+        {loop.map((skill, idx) => {
+          const Icon = SKILL_ICON[normalize(skill)];
+          return (
+            <li
+              key={`${skill}-${idx}`}
+              className="bg-white/90 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-2.5 flex items-center gap-2 shadow-sm text-gray-900 dark:text-white/85 whitespace-nowrap"
+            >
+              {Icon && <Icon className="h-5 w-5 flex-shrink-0" />}
+              <span className="text-sm sm:text-base">{skill}</span>
+            </li>
+          );
+        })}
+      </motion.ul>
+    </div>
+  );
+}
 
 export default function Skills() {
   const { ref } = useSectionView("Skills");
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
-
-  const filteredSkills = useMemo(() => {
-    if (activeCategory === "All") return skillsData;
-
-    return skillsData.filter((skill) => {
-      const normalized = normalize(skill);
-      const category = NORMALIZED_SKILL_CATEGORY[normalized] ?? "Other";
-      return category === activeCategory;
-    });
-  }, [activeCategory]);
-
-  // Count skills per category
-  const countsByCategory: Record<Category, number> = useMemo(() => {
-    const counts: Record<Category, number> = {
-      All: skillsData.length,
-      Languages: 0,
-      Frontend: 0,
-      Backend: 0,
-      Databases: 0,
-      Tools: 0,
-      Other: 0,
-    };
-
-    skillsData.forEach((skill) => {
-      const normalized = normalize(skill);
-      const cat = NORMALIZED_SKILL_CATEGORY[normalized] ?? "Other";
-      counts[cat]++;
-    });
-
-    return counts;
-  }, []);
 
   return (
     <section
@@ -209,64 +180,16 @@ export default function Skills() {
         eyebrow="Section 04 — Toolkit"
         accent="reach for"
         accentVariant="solid"
-        subtitle="Browse by category or explore all."
+        subtitle="A glimpse of my daily drivers — not the full list."
       >
         What I reach for
       </SectionHeading>
 
-      {/* Category Pills */}
-      <div className="mb-6 flex flex-wrap items-center justify-center gap-2">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            onClick={() => setActiveCategory(cat)}
-            className={`rounded-full border px-3 py-1.5 text-sm transition flex items-center gap-1.5 ${
-              activeCategory === cat
-                ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
-                : "bg-white/70 text-gray-700 hover:bg-white dark:bg-white/10 dark:text-white/80 dark:hover:bg-white/20"
-            }`}
-          >
-            <span>{cat}</span>
-            <span className="inline-flex items-center justify-center rounded-full bg-black/10 dark:bg-white/20 px-1.5 py-0.5 text-[0.65rem] font-medium">
-              {countsByCategory[cat]}
-            </span>
-          </button>
-        ))}
+      <div className="flex flex-col gap-3">
+        <MarqueeRow items={rowA} direction="ltr" duration={35} />
+        <MarqueeRow items={rowB} direction="rtl" duration={40} />
+        <MarqueeRow items={rowC} direction="ltr" duration={45} />
       </div>
-
-      {/* Skills Grid */}
-      <motion.ul
-        className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 justify-center text-sm sm:text-base text-gray-800"
-        variants={containerVariants}
-        initial="show"
-      >
-        {filteredSkills.length === 0 ? (
-          <li className="col-span-full py-6 text-sm text-gray-500 dark:text-white/60">
-            No skills in this category yet.
-          </li>
-        ) : (
-          filteredSkills.map((skill) => {
-            const normalized = normalize(skill);
-            const Icon = NORMALIZED_SKILL_ICON[normalized];
-
-            return (
-              <motion.li
-                key={skill}
-                variants={itemVariants}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white/90 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2 justify-center shadow-sm hover:shadow-md transition text-gray-900 dark:text-white/85"
-              >
-                {Icon && (
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                )}
-                <span className="whitespace-nowrap">{skill}</span>
-              </motion.li>
-            );
-          })
-        )}
-      </motion.ul>
     </section>
   );
 }

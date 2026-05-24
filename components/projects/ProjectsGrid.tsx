@@ -5,15 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { projectsData } from "./projects.data";
-import RunLocallyBlock from "./RunLocallyBlock";
 import type { ProjectShowcase as ProjectType } from "./types";
 
 export default function ProjectsGrid() {
   const [open, setOpen] = useState<ProjectType | null>(null);
-  const [showRun, setShowRun] = useState(false);
 
   useEffect(() => {
-    setShowRun(false);
     if (!open) {
       document.body.style.overflow = "";
       return;
@@ -197,11 +194,6 @@ export default function ProjectsGrid() {
                     ))}
                   </ul>
 
-                  {showRun && (
-                    <div className="mt-6">
-                      <RunLocallyBlock code={open.runLocally} />
-                    </div>
-                  )}
                 </div>
               </div>
 
@@ -214,7 +206,7 @@ export default function ProjectsGrid() {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 dark:bg-white dark:text-gray-900"
                   >
-                    Live Demo
+                    {open.demoLabel ?? "Live Demo"}
                     <span aria-hidden>→</span>
                   </Link>
                 )}
@@ -231,21 +223,6 @@ export default function ProjectsGrid() {
                     Code
                   </Link>
                 )}
-                <button
-                  type="button"
-                  onClick={() => setShowRun((v) => !v)}
-                  className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-black/5 dark:text-white/80 dark:hover:bg-white/10"
-                  aria-expanded={showRun}
-                >
-                  <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
-                    <path
-                      fillRule="evenodd"
-                      d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 2.293a1 1 0 011.414 0L9 9.586l-2.293 2.293a1 1 0 11-1.414-1.414L6.586 9.586 5.293 8.293a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  {showRun ? "Hide" : "Run locally"}
-                </button>
               </footer>
             </motion.div>
           </motion.div>
