@@ -103,7 +103,7 @@ export default function Intro() {
             >
                 <span className="font-semibold text-gray-900 dark:text-white">Software Engineer</span>
                 <span className="mx-2 text-gray-400 dark:text-white/40">•</span>
-                <span>Building systems across the stack — frontend to protocol-level.</span>
+                <span>Building systems across the stack - frontend to protocol-level.</span>
             </motion.p>
 
             {/* Intro blurb */}
@@ -113,8 +113,8 @@ export default function Intro() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
             >
-                Hi, I&apos;m Dikshant — a Software Development Engineer based in Pune with 1.5+ years of experience
-                shipping production software, from real-time web apps in TypeScript to low-level protocol code in C
+                Hi, I&apos;m Dikshant — a Software Development Engineer based in Pune with 2+ years of experience
+                shipping production software, from real-time web apps in TypeScript, React.js to low-level protocol code in C
                 and Python. Currently an SDE at{" "}
                 <span className="font-medium text-gray-900 dark:text-white">Chainscore Labs</span>, and actively looking
                 for SDE / Software Engineer roles focused on backend, distributed systems, or systems software.

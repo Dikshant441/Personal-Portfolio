@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
 /* Enhance vertical timeline look & feel */
 .vertical-timeline-element-content {
   transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
