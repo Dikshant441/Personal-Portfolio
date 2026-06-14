@@ -16,7 +16,7 @@ export default function Experience() {
       className="relative scroll-mt-24 mb-24 w-full max-w-4xl"
     >
       <SectionHeading
-        eyebrow="Section 02 — Journey"
+        eyebrow="Section 02 / Journey"
         accent="been & built"
         accentVariant="italic"
         subtitle="Roles, rooms, and what shipped out of each."
@@ -27,14 +27,14 @@ export default function Experience() {
       {/* subtle decorative gradient background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-purple-500/[0.04] to-transparent"
+        className="pointer-events-none absolute inset-0 -z-10"
       />
 
       <ol className="relative mt-6 pl-6 sm:pl-10">
         {/* Vertical rail */}
         <div
           aria-hidden
-          className="absolute left-[10px] top-3 bottom-3 w-px bg-gradient-to-b from-indigo-400/40 via-gray-300 to-emerald-400/40 dark:via-white/15 sm:left-[18px]"
+          className="absolute left-[10px] top-3 bottom-3 w-px bg-gray-300 dark:bg-white/15 sm:left-[18px]"
         />
 
         {experiencesData.map((item, index) => {
@@ -89,7 +89,7 @@ export default function Experience() {
 
               {/* Card */}
               <div
-                className={`group rounded-2xl border bg-white/80 p-5 shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-lg dark:bg-white/[0.04] sm:p-6 ${
+                className={`group rounded-2xl border bg-white/80 p-5 backdrop-blur transition-all hover:-translate-y-0.5 dark:bg-white/[0.04] sm:p-6 ${
                   isCurrent
                     ? "border-emerald-500/30 dark:border-emerald-400/30"
                     : "border-black/5 dark:border-white/10"

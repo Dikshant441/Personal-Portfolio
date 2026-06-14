@@ -10,7 +10,7 @@ export const projectsData: readonly ProjectShowcase[] = [
   {
     slug: "merge-me",
     title: "Merge-Me",
-    tagline: "Tinder for developers — match, chat, build together.",
+    tagline: "Match for developers | chat, build together.",
     description:
       "A full-stack matchmaking platform that helps developers discover collaborators based on shared stack and interests. Real-time chat, swipe-based interactions, and a hardened auth flow built from scratch.",
     highlights: [
@@ -19,7 +19,7 @@ export const projectsData: readonly ProjectShowcase[] = [
       "Real-time messaging via WebSockets (Socket.IO)",
       "Redux Toolkit for client state, RTK Query for data fetching",
     ],
-    tech: ["Node.js", "Express", "Supabase", "React", "Redux", "Socket.IO"],
+    tech: ["Node.js", "Express", "PostgreSQL", "React", "Redux", "Socket.IO", "Auth0", "Oauth", "TypeScript", "Tailwind CSS, "],
     imageUrl: mergeMe,
     videoUrl: "",
     demoUrl: "https://mergeme.xyz",
@@ -30,7 +30,7 @@ export const projectsData: readonly ProjectShowcase[] = [
     title: "Quiver",
     tagline: "A QUIC-native distributed pub/sub broker built from scratch.",
     description:
-      "A real-time pub/sub message broker built entirely on QUIC instead of TCP — every peer connection is mutually authenticated with Ed25519 certificates, with 0-RTT session resumption for sub-millisecond reconnects. Designed around custom wire protocols multiplexed over QUIC streams, inspired by production blockchain networking patterns.",
+      "A real-time pub/sub message broker built entirely on QUIC instead of TCP - every peer connection is mutually authenticated with Ed25519 certificates, with 0-RTT session resumption for sub-millisecond reconnects. Designed around custom wire protocols multiplexed over QUIC streams, inspired by production blockchain networking patterns.",
     highlights: [
       "Custom application-layer protocol over QUIC streams via aioquic",
       "Zero-trust mutual TLS using Ed25519 identity keys encoded as certificate SANs",
@@ -47,7 +47,7 @@ export const projectsData: readonly ProjectShowcase[] = [
     title: "JAM Protocol Implementation",
     tagline: "The Join-Accumulate Machine for Polkadot.",
     description:
-      "Contributions to JAM Protocol — a major upgrade to the Polkadot ecosystem proposed by Gavin Wood. Documentation covers design choices, core components, and integration points required to run a functional JAM node, from block production and finality to PVM and peer-to-peer networking.",
+      "Contributions to JAM Protocol - a major upgrade to the Polkadot ecosystem proposed by Gavin Wood. Documentation covers design choices, core components, and integration points required to run a functional JAM node, from block production and finality to PVM and peer-to-peer networking.",
     highlights: [
       "QUIC-based peer-to-peer networking implementation",
       "PVM (Polkadot Virtual Machine) integration notes",
@@ -100,7 +100,7 @@ export const projectsData: readonly ProjectShowcase[] = [
     title: "Virtual Cart",
     tagline: "Full-featured MERN e-commerce with admin dashboard.",
     description:
-      "An end-to-end e-commerce platform built on the MERN stack — product catalog, cart, checkout, and an admin dashboard for inventory and orders. Material UI for polished components and Stripe for payment processing.",
+      "An end-to-end e-commerce platform built on the MERN stack - product catalog, cart, checkout, and an admin dashboard for inventory and orders. Material UI for polished components and Stripe for payment processing.",
     highlights: [
       "Stripe Checkout with webhook-driven order fulfillment",
       "Admin dashboard for orders, products, and users",

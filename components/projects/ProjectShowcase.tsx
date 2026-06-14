@@ -22,7 +22,7 @@ export default function ProjectShowcase({ project, index }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5, delay: 0.05 }}
-      className="relative overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur transition-shadow hover:shadow-xl dark:border-white/10 dark:bg-white/5 sm:p-8"
+      className="relative overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-6 backdrop-blur dark:border-white/10 dark:bg-white/5 sm:p-8"
     >
       <div
         className={`grid gap-8 lg:grid-cols-2 lg:items-stretch ${
@@ -57,7 +57,7 @@ export default function ProjectShowcase({ project, index }: Props) {
               >
                 <span
                   aria-hidden
-                  className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-br from-indigo-500 to-emerald-400"
+                  className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-400 dark:bg-white/40"
                 />
                 <span>{h}</span>
               </li>
@@ -68,7 +68,7 @@ export default function ProjectShowcase({ project, index }: Props) {
             {project.tech.map((t) => (
               <li
                 key={t}
-                className="rounded-full border border-black/10 bg-white px-2.5 py-1 text-[0.7rem] font-medium uppercase tracking-wider text-gray-700 shadow-sm dark:border-white/15 dark:bg-white/5 dark:text-white/80"
+                className="rounded-full border border-black/10 bg-white px-2.5 py-1 text-[0.7rem] font-medium uppercase tracking-wider text-gray-700 dark:border-white/15 dark:bg-white/5 dark:text-white/80"
               >
                 {t}
               </li>

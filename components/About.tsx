@@ -21,12 +21,12 @@ export default function About() {
     >
       <div className="text-center">
         <SectionHeading
-          eyebrow="Section 01 — Dev story"
+          eyebrow="Section 01 / Dev story"
           accent="full-stack craft"
           accentVariant="marker"
           subtitle="A curious builder blending full-stack craft with blockchain systems."
         >
-          My dev story — full-stack craft, end to end
+          My dev story - full-stack craft, end to end
         </SectionHeading>
       </div>
 
@@ -36,7 +36,6 @@ export default function About() {
         <div className="md:sticky md:top-28 md:self-start">
           <figure className="group relative mx-auto w-full max-w-sm">
             {/* Ambient glow */}
-            <div aria-hidden className="absolute -inset-3 -z-10 rounded-[28px] bg-gradient-to-tr from-indigo-500/25 via-fuchsia-500/15 to-emerald-400/25 opacity-60 blur-2xl transition-opacity duration-500 group-hover:opacity-90" />
 
             {/* Portrait */}
             <div className="overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10">
@@ -68,7 +67,7 @@ export default function About() {
             </span>
 
             {/* Bottom "now" card */}
-            <div className="mt-4 rounded-xl border border-black/10 bg-white/80 p-3 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5">
+            <div className="mt-4 rounded-xl border border-black/10 bg-white/80 p-3 backdrop-blur-md dark:border-white/10 dark:bg-white/5">
               <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.18em] text-gray-500 dark:text-white/50">
                 <span>Currently</span>
                 <span className="font-mono text-emerald-600 dark:text-emerald-400">● live</span>
@@ -97,7 +96,7 @@ export default function About() {
           </p>
 
           <p className="mb-5">
-            My day-to-day spans the full stack — and goes a few layers below it. I&apos;ve built complete trading
+            My day-to-day spans the full stack and goes a few layers below it. I&apos;ve built complete trading
             frontends in <span className="font-medium">Next.js / React / TypeScript</span>, shipped{" "}
             <span className="font-medium">Node.js / Express APIs</span> with WebSocket services supporting
             thousands of concurrent users, and currently work on lower-level systems: architecting computational
@@ -109,7 +108,7 @@ export default function About() {
           <p className="mb-5">
             Less than any single domain, what pulls me in are problems where{" "}
             <span className="font-semibold text-gray-900 dark:text-white">correctness, performance, and concurrency</span>{" "}
-            actually matter — APIs under load, real-time data, networking, protocols, virtual machines.
+            actually matter - APIs under load, real-time data, networking, protocols, virtual machines.
           </p>
 
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-white/50">
@@ -117,12 +116,12 @@ export default function About() {
           </p>
           <ul className="mb-6 space-y-2.5">
             {[
+              { label: "Experimenting with agentic workflows and LLM tooling - building RAG systems, custom MCP servers, and eval harnesses to test agent reliability"},  
               { label: "Working through System Design problems (LLD + HLD) in C++ and Go" },
-              { label: "Building side projects to learn distributed systems internals — most recently Quiver, a QUIC-native pub/sub message broker written from scratch in Python" },
-              { label: "Solving competitive programming problems on LeetCode (350+ solved)" },
+              { label: "Building side projects to learn distributed systems internals - most recently Quiver, a QUIC-native pub/sub message broker written from scratch in Python" }
             ].map((item) => (
               <li key={item.label} className="flex gap-2.5 text-[0.95rem]">
-                <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-br from-indigo-500 to-emerald-400" />
+                <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-400 dark:bg-white/40" />
                 <span>{item.label}</span>
               </li>
             ))}
@@ -131,7 +130,7 @@ export default function About() {
           <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 dark:border-emerald-400/20 dark:bg-emerald-400/5">
             <p className="text-[0.95rem] text-gray-800 dark:text-white/85">
               <span className="font-semibold text-emerald-700 dark:text-emerald-300">🚀 Currently open to SDE / SDE-2 / Software Engineer roles</span>{" "}
-              — especially ones focused on backend, distributed systems, networking, or systems software. If
+              - especially ones focused on backend, distributed systems, networking, or systems software. If
               you&apos;re hiring or know of a fit, I&apos;d love to hear from you.
             </p>
           </div>

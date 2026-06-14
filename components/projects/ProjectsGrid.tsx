@@ -38,7 +38,7 @@ export default function ProjectsGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4 }}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 text-left shadow-sm backdrop-blur transition-all hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04]"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 text-left backdrop-blur transition-all hover:-translate-y-1 dark:border-white/10 dark:bg-white/[0.04]"
           >
             <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
               <Image
@@ -105,7 +105,7 @@ export default function ProjectsGrid() {
               exit={{ opacity: 0, y: 30, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="project-modal relative flex h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl dark:bg-gray-900 sm:h-auto sm:max-h-[88vh] sm:rounded-2xl"
+              className="project-modal relative flex h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl bg-white dark:bg-gray-900 sm:h-auto sm:max-h-[88vh] sm:rounded-2xl"
             >
               {/* Sticky header — title + close always visible */}
               <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-black/5 bg-white/95 px-5 py-3 backdrop-blur-md dark:border-white/10 dark:bg-gray-900/95 sm:px-7">
@@ -173,7 +173,7 @@ export default function ProjectsGrid() {
                       >
                         <span
                           aria-hidden
-                          className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-br from-indigo-500 to-emerald-400"
+                          className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-400 dark:bg-white/40"
                         />
                         <span>{h}</span>
                       </li>

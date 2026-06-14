@@ -4,60 +4,57 @@ import React from "react";
 import SectionHeading from "./Section-heading";
 import { motion } from "framer-motion";
 import { useSectionView } from "@/lib/hooks";
-import { SendEmail } from "@/actions/SendEmail";
 import SubmitBtn from "./Submit-btn";
 import toast from "react-hot-toast";
 import { FiMail, FiMessageSquare } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
-import { useFormState } from "react-dom";
+import { BsCalendar2Check } from "react-icons/bs";
 
-
+type FormState = { success: boolean; error?: string };
 
 export default function Contact() {
   const { ref } = useSectionView("Contact");
   const formRef = React.useRef<HTMLFormElement>(null);
-  const [isPending, startTransition] = React.useTransition();
-  const submitToastId = React.useRef<string | null>(null);
+  const [isPending, setIsPending] = React.useState(false);
+  const [state, setState] = React.useState<FormState>({ success: false });
 
-  type FormState = { success: boolean; error?: string };
-  const initialState: FormState = { success: false };
-  const [state, formAction] = useFormState<FormState, FormData>(
-    async (_prev: FormState, formData: FormData) => {
-      const { error } = await SendEmail(formData);
-      if (error) return { success: false, error };
-      return { success: true };
-    },
-    initialState
-  );
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const senderEmail = (form.elements.namedItem("senderEmail") as HTMLInputElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
 
-  React.useEffect(() => {
-    if (state?.error) {
-      toast.error(
-        `Couldn't send right now. Please click Submit again. (${state.error})`,
-        { id: submitToastId.current ?? undefined }
-      );
-      submitToastId.current = null;
-    } else if (state?.success) {
-      toast.success("Email sent successfully!", {
-        id: submitToastId.current ?? undefined,
-      });
-      submitToastId.current = null;
-      formRef.current?.reset();
-    }
-  }, [state]);
+    // setTimeout moves all React state updates outside the synchronous event-handler
+    // context so React doesn't treat them as "synchronous input" and throw a Suspense error.
+    setTimeout(async () => {
+      setIsPending(true);
+      const toastId = toast.loading("Sending your message…") as string;
 
-  const actionWithTransition = React.useCallback(
-    (formData: FormData) => {
-      // Show immediate feedback and invoke action in a transition
-      submitToastId.current = toast.loading("Sending your message…", {
-        id: submitToastId.current ?? undefined,
-      });
-      startTransition(() => {
-        formAction(formData);
-      });
-    },
-    [formAction]
-  );
+      try {
+        const res = await fetch("/api/send-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ senderEmail, message }),
+        });
+        const result = await res.json();
+        if (!res.ok || result.error) {
+          const msg = result.error ?? "Something went wrong";
+          setState({ success: false, error: msg });
+          toast.error(`Couldn't send right now. ${msg}`, { id: toastId });
+        } else {
+          setState({ success: true, error: undefined });
+          toast.success("Email sent successfully!", { id: toastId });
+          formRef.current?.reset();
+        }
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : "Unknown error";
+        setState({ success: false, error: msg });
+        toast.error(`Couldn't send right now. ${msg}`, { id: toastId });
+      } finally {
+        setIsPending(false);
+      }
+    }, 0);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0, y: 12 },
@@ -92,7 +89,7 @@ export default function Contact() {
       }}
     >
       <SectionHeading
-        eyebrow="Section 05 — Say hi"
+        eyebrow="Section 05 / Say hi"
         accent="get in touch"
         subtitle="Email, WhatsApp, or the form below. I usually reply within a day."
       >
@@ -113,7 +110,7 @@ export default function Contact() {
       </p>
 
       {/* Quick links */}
-      <div className="mt-6 grid grid-cols-2 gap-3 px-2 sm:gap-4 sm:px-0">
+      <div className="mt-6 grid grid-cols-3 gap-3 px-2 sm:gap-4 sm:px-0">
         <a
           href="mailto:singhdikshant200@gmail.com"
           className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
@@ -130,6 +127,15 @@ export default function Contact() {
           <FaWhatsapp className="opacity-80" />
           WhatsApp
         </a>
+        <a
+          href="https://topmate.io/dikshant_441/"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
+        >
+          <BsCalendar2Check className="opacity-70" />
+          Topmate
+        </a>
       </div>
 
       {/* Form card */}
@@ -140,11 +146,11 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.3 }}
         className="mt-8"
       >
-        <div className="mx-auto max-w-2xl rounded-2xl border border-black/10 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/[0.03] sm:p-6">
+        <div className="mx-auto max-w-2xl rounded-2xl border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.03] sm:p-6">
           <form
             ref={formRef}
             className="flex flex-col gap-4 text-left sm:gap-5"
-            action={actionWithTransition}
+            onSubmit={handleSubmit}
           >
             {/* Email field */}
             <motion.div variants={containerVariants}>
@@ -191,7 +197,7 @@ export default function Contact() {
 
             {/* Submit */}
             <motion.div variants={containerVariants} className="flex flex-col items-center gap-2 pt-1">
-              <SubmitBtn />
+              <SubmitBtn pending={isPending} />
               {state?.error && (
                 <p className="text-center text-sm text-rose-600 dark:text-rose-400">
                   We couldn&apos;t send right now. Please click Submit again. If it keeps failing,

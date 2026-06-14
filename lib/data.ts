@@ -37,15 +37,15 @@ export const experiencesData = [
     company: "Chainscore Labs",
     location: "Pune, India",
     description:
-      "Started as an intern, promoted to full-time SDE. Work spans the full stack and a few layers below it — from real-time trading UIs to protocol-level SDKs. Currently focused on systems where correctness, performance, and concurrency actually matter.",
+      "Started as an intern, promoted to full-time SDE. Work spans the full stack and a few layers below it - from real-time trading UIs to protocol-level SDKs. Currently focused on systems where correctness, performance, and concurrency actually matter.",
     icon: React.createElement(CgWorkAlt),
-    date: "Nov 2024 — Present",
+    date: "Nov 2024 - Present",
     current: true,
     highlights: [
-      "Co-developing JAM (Join-Accumulate Machine) — Polkadot's next-gen protocol from Gavin Wood",
-      "Contributing to a high-performance SDK in C with QUIC / TLS 1.3 networking — designed for 1,000+ validators at sub-2s latency",
+      "Co-developing JAM (Join-Accumulate Machine) - Polkadot's next-gen protocol from Gavin Wood",
+      "Contributing to a high-performance SDK in C with QUIC / TLS 1.3 networking - designed for 1,000+ validators at sub-2s latency",
       "Architecting computational pipelines and consensus mechanisms in Python: off-chain auditing, dispute resolution, work-report distribution, adaptive tranche logic",
-      "Shipped 20k+ LOC to TelosX, a Layer-1 crypto exchange — trading frontends in Next.js + TypeScript with real-time WebSocket feeds, ~40% UI perf improvement for 10k+ users",
+      "Shipped 20k+ LOC to TelosX, a Layer-1 crypto exchange - trading frontends in Next.js + TypeScript with real-time WebSocket feeds, ~40% UI perf improvement for 10k+ users",
       "Built Node.js / Express APIs with WebSocket services supporting thousands of concurrent users",
     ],
     skills: [
@@ -67,12 +67,12 @@ export const experiencesData = [
     company: "Elevatifier",
     location: "Remote",
     description:
-      "Owned backend-heavy slices of a recruiter platform — REST API design, MongoDB modeling, and end-to-end feature delivery alongside the frontend team.",
+      "Owned backend-heavy slices of a recruiter platform - REST API design, MongoDB modeling, and end-to-end feature delivery alongside the frontend team.",
     icon: React.createElement(CgWorkAlt),
-    date: "Jul 2024 — Oct 2024",
+    date: "Jul 2024 - Oct 2024",
     highlights: [
       "Designed and shipped REST APIs in Node.js + Express, integrated with the React / Next.js frontend",
-      "Optimized MongoDB queries and indexing — meaningful response-time reductions on hot paths",
+      "Optimized MongoDB queries and indexing - meaningful response-time reductions on hot paths",
       "Implemented validation, error handling, and auth flows across the stack",
     ],
     skills: [
@@ -92,13 +92,13 @@ export const experiencesData = [
     company: "Kamla Nehru Institute of Technology (KNIT)",
     location: "Sultanpur, India",
     description:
-      "Graduated with CGPA 8.4. Strong foundation in computer systems, networks, and software engineering — paired with hands-on full-stack and DSA work that became the launching pad for everything since.",
+      "Graduated with CGPA 8.4. Strong foundation in computer systems, networks, and software engineering - paired with hands-on full-stack and DSA work that became the launching pad for everything since.",
     icon: React.createElement(LuGraduationCap),
-    date: "Nov 2020 — Jul 2024",
+    date: "Nov 2020 - Jul 2024",
     highlights: [
       "Core CS coursework: DSA, OS, DBMS, Computer Networks, OOP",
       "Multiple side projects across the MERN / Next.js stack",
-      "Active in competitive programming — 350+ problems solved on LeetCode",
+      "Active in competitive programming - 350+ problems solved on LeetCode",
     ],
     skills: ["C++", "DSA", "DBMS", "OS", "Computer Networks", "OOP", "SQL"],
   },

@@ -18,7 +18,7 @@ export default async function HealthPage() {
   );
 
   return (
-    <section className="mx-auto my-16 w-[min(100%,42rem)] rounded-2xl border border-black/10 dark:border-white/10 bg-white/90 dark:bg-white/5 p-6 backdrop-blur-md shadow">
+    <section className="mx-auto my-16 w-[min(100%,42rem)] rounded-2xl border border-black/10 dark:border-white/10 bg-white/90 dark:bg-white/5 p-6 backdrop-blur-md">
       <h1 className="text-2xl font-semibold mb-1">Healthcheck</h1>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
         Server-side environment check (values are not displayed, only presence).
