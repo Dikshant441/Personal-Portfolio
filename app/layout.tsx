@@ -12,7 +12,7 @@ const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
 const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'], variable: '--font-serif' })
 
 export const metadata = {
-  title: 'Dikshant Singh | Personal Portfolio',
+  title: 'Dikshant Singh',
   description: 'Dikshant is a full-stack developer. he is fresher and looking for a job.',
 }
 
