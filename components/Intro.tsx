@@ -23,14 +23,14 @@ export default function Intro() {
 
     return (
         <section
-            className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 px-2 sm:px-4 lg:flex-row lg:items-center lg:gap-16"
+            className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16"
             id="home"
             ref={ref}
         >
             {/* ── Text column ── */}
             <div className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left">
 
-                {/* Topmate CTA */}
+                {/* Cal.com CTA */}
              
 
                 {/* Label */}
@@ -60,10 +60,11 @@ export default function Intro() {
                     {...fadeUp(0.12)}
                     className="mt-5 max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300"
                 >
-                    Based in Pune with 2+ years shipping production software  real-time web apps in TypeScript &amp; React,
-                    and low-level protocol code in C, Golang and Python. Currently SDE at{" "}
-                    <span className="font-semibold text-gray-900 dark:text-white">Chainscore Labs</span>.
-                    Open to backend, distributed systems, and systems software roles.
+                    With <span className="font-semibold text-gray-900 dark:text-white">~2 years</span> shipping production software, real-time web apps in{" "}
+                    <span className="font-semibold text-gray-900 dark:text-white">TypeScript/Javascript &amp; React, Node.js/Nest.js</span>
+                    {" "}and low-level protocol code in <span className="font-semibold text-gray-900 dark:text-white">C and Python</span>. Currently SDE at{" "}
+                    Chainscore Labs.
+                    Open to full-stack, frontend, backend, distributed systems, and systems software roles.
                 </motion.p>
 
                 {/* Badges */}
@@ -83,9 +84,6 @@ export default function Intro() {
                     </span>
                     <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600 dark:border-white/10 dark:bg-white/5 dark:text-gray-300">
                         Networking &amp; Protocols
-                    </span>
-                    <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600 dark:border-white/10 dark:bg-white/5 dark:text-gray-300">
-                        Pune, India
                     </span>
                 </motion.div>
 
@@ -145,10 +143,10 @@ export default function Intro() {
                         </a>
                         <a
                             className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white p-2.5 text-lg text-gray-600 transition hover:border-gray-300 hover:text-gray-900 dark:border-white/10 dark:bg-white/5 dark:text-gray-400 dark:hover:text-white"
-                            href="https://topmate.io/dikshant_441/"
+                            href="https://cal.com/dikshant-singh-canxf0/30min"
                             target="_blank"
                             rel="noreferrer"
-                            aria-label="Topmate"
+                            aria-label="Cal.com"
                         >
                             <BsCalendar2Check />
                         </a>

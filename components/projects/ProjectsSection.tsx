@@ -11,10 +11,9 @@ export default function ProjectsSection() {
     <section
       ref={ref}
       id="projects"
-      className="scroll-mt-24 mb-28 w-full max-w-5xl"
+      className="scroll-mt-24 mb-28 w-full max-w-4xl xl:max-w-5xl"
     >
       <SectionHeading
-        eyebrow="Section 03 / Proof of work"
         accent="built & shipped"
         accentVariant="squiggle"
         subtitle="Tap any card to see the brief, stack, and how to run it locally."

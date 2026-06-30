@@ -177,10 +177,9 @@ export default function Skills() {
       className="mb-24 max-w-[53rem] scroll-mt-24 text-center"
     >
       <SectionHeading
-        eyebrow="Section 04 / Toolkit"
         accent="reach for"
         accentVariant="solid"
-        subtitle="A glimpse of my daily drivers — not the full list."
+        subtitle="A glimpse of my daily drivers - not the full list."
       >
         What I reach for
       </SectionHeading>

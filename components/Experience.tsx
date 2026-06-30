@@ -16,7 +16,6 @@ export default function Experience() {
       className="relative scroll-mt-24 mb-24 w-full max-w-4xl"
     >
       <SectionHeading
-        eyebrow="Section 02 / Journey"
         accent="been & built"
         accentVariant="italic"
         subtitle="Roles, rooms, and what shipped out of each."

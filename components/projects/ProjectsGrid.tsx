@@ -38,7 +38,7 @@ export default function ProjectsGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4 }}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 text-left backdrop-blur transition-all hover:-translate-y-1 dark:border-white/10 dark:bg-white/[0.04]"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-gray-50/95 text-left shadow-sm backdrop-blur transition-all hover:-translate-y-1 hover:border-black/15 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04]"
           >
             <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
               <Image
