@@ -120,7 +120,7 @@ export default function Contact() {
           className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
         >
           <BsCalendar2Check className="opacity-70" />
-          Cal.com
+          Book meeting
         </a>
       </div>
 

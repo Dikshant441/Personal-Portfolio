@@ -28,7 +28,7 @@ export default function ProjectsGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         {projectsData.map((p) => (
           <motion.button
             key={p.slug}
@@ -38,33 +38,39 @@ export default function ProjectsGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4 }}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-gray-50/95 text-left shadow-sm backdrop-blur transition-all hover:-translate-y-1 hover:border-black/15 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04]"
+            className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-gray-50/95 text-left shadow-sm backdrop-blur transition-all hover:-translate-y-1 hover:border-black/15 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04] sm:flex-row"
           >
-            <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-900 sm:w-40 sm:flex-shrink-0 sm:aspect-[4/3] md:w-44 lg:w-48">
               <Image
                 src={p.imageUrl}
                 alt=""
                 aria-hidden
                 fill
-                sizes="(max-width: 640px) 100vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 11rem, 12rem"
                 className="scale-125 object-cover opacity-50 blur-xl"
               />
               <Image
                 src={p.imageUrl}
                 alt={p.title}
                 fill
-                sizes="(max-width: 640px) 100vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 11rem, 12rem"
                 className="relative object-contain transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </div>
-            <div className="flex flex-1 flex-col p-4">
+            <div className="flex flex-1 flex-col p-4 sm:px-4 sm:py-4">
               <h3 className="text-base font-semibold tracking-tight text-gray-900 dark:text-white">
                 {p.title}
               </h3>
               <p className="mt-1 text-[0.8rem] text-indigo-600 dark:text-indigo-300">
                 {p.tagline}
               </p>
-              <ul className="mt-3 flex flex-wrap gap-1">
+              <p className="mt-3 overflow-hidden text-sm leading-relaxed text-gray-600 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] dark:text-white/70">
+                {p.description}
+              </p>
+              <p className="mt-3 text-xs font-medium text-gray-500 dark:text-white/55">
+                {p.highlights[0]}
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-1">
                 {p.tech.slice(0, 4).map((t) => (
                   <li
                     key={t}
@@ -79,7 +85,7 @@ export default function ProjectsGrid() {
                   </li>
                 )}
               </ul>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-gray-500 transition group-hover:text-gray-900 dark:text-white/55 dark:group-hover:text-white">
+              <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-gray-500 transition group-hover:text-gray-900 dark:text-white/55 dark:group-hover:text-white">
                 View details →
               </span>
             </div>

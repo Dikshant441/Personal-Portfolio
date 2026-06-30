@@ -11,7 +11,7 @@ export default function ProjectsSection() {
     <section
       ref={ref}
       id="projects"
-      className="scroll-mt-24 mb-28 w-full max-w-4xl xl:max-w-5xl"
+      className="scroll-mt-24 mb-28 w-full max-w-4xl xl:max-w-6xl"
     >
       <SectionHeading
         accent="built & shipped"

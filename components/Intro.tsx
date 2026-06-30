@@ -23,12 +23,12 @@ export default function Intro() {
 
     return (
         <section
-            className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16"
+            className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 md:flex-row md:items-center md:gap-12 lg:gap-16"
             id="home"
             ref={ref}
         >
             {/* ── Text column ── */}
-            <div className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left">
+            <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
 
                 {/* Cal.com CTA */}
              
@@ -70,7 +70,7 @@ export default function Intro() {
                 {/* Badges */}
                 <motion.div
                     {...fadeUp(0.15)}
-                    className="mt-5 flex flex-wrap items-center justify-center gap-2 lg:justify-start"
+                    className="mt-5 flex flex-wrap items-center justify-center gap-2 md:justify-start"
                 >
                     <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">
                         <span className="relative flex h-2 w-2">
@@ -90,7 +90,7 @@ export default function Intro() {
                 {/* CTAs */}
                 <motion.div
                     {...fadeUp(0.18)}
-                    className="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+                    className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start"
                 >
                     <Link
                         href="#contact"

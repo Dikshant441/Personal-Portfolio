@@ -43,6 +43,23 @@ export const projectsData: readonly ProjectShowcase[] = [
     repoUrl: "https://github.com/Dikshant441/quiver",
   },
   {
+    slug: "telosx",
+    title: "TelosX Landing Page",
+    tagline: "High-conversion crypto landing page with i18n + CMS.",
+    description:
+      "Marketing site for TelosX, an emerging crypto trading platform. Animated hero powered by Framer Motion, full localization, and a dynamic blog backed by Sanity CMS so the marketing team can ship copy without code changes.",
+    highlights: [
+      "Sanity Studio integration for content-managed blog",
+      "Locale-aware routing with next-intl",
+      "Framer Motion scroll-driven animations",
+      "Lighthouse 95+ on perf and accessibility",
+    ],
+    tech: ["Next.js", "Sanity API", "Tailwind", "Framer Motion", "TypeScript"],
+    imageUrl: telosx,
+    videoUrl: "",
+    demoUrl: "https://telosx-landing-v2.vercel.app/",
+  },
+  {
     slug: "jam-protocol",
     title: "JAM Protocol Implementation",
     tagline: "The Join-Accumulate Machine for Polkadot.",
@@ -77,23 +94,6 @@ export const projectsData: readonly ProjectShowcase[] = [
     imageUrl: netflixgpt,
     videoUrl: "",
     repoUrl: "https://github.com/Dikshant441/Netflixx-GPT",
-  },
-  {
-    slug: "telosx",
-    title: "TelosX Landing Page",
-    tagline: "High-conversion crypto landing page with i18n + CMS.",
-    description:
-      "Marketing site for TelosX, an emerging crypto trading platform. Animated hero powered by Framer Motion, full localization, and a dynamic blog backed by Sanity CMS so the marketing team can ship copy without code changes.",
-    highlights: [
-      "Sanity Studio integration for content-managed blog",
-      "Locale-aware routing with next-intl",
-      "Framer Motion scroll-driven animations",
-      "Lighthouse 95+ on perf and accessibility",
-    ],
-    tech: ["Next.js", "Sanity API", "Tailwind", "Framer Motion", "TypeScript"],
-    imageUrl: telosx,
-    videoUrl: "",
-    demoUrl: "https://telosx-landing-v2.vercel.app/",
   },
   {
     slug: "virtual-cart",
