@@ -74,7 +74,7 @@ export default function Contact() {
     <motion.section
       id="contact"
       ref={ref}
-      className="relative mb-24 w-[min(100%,42rem)] mx-auto text-center"
+      className="relative mb-20 w-[min(100%,42rem)] mx-auto text-center"
       initial={{
         opacity: 0,
       }}
@@ -89,28 +89,14 @@ export default function Contact() {
       }}
     >
       <SectionHeading
-        eyebrow="Section 05 / Say hi"
         accent="get in touch"
         subtitle="Email, WhatsApp, or the form below. I usually reply within a day."
       >
         Let&apos;s get in touch
       </SectionHeading>
 
-      <p className="text-gray-700 dark:text-white/80">
-        Prefer WhatsApp or email? Reach me at
-        <a
-          href="https://wa.me/917339895383"
-          target="_blank"
-          rel="noreferrer"
-          className="mx-1 underline decoration-dashed decoration-emerald-500/60 underline-offset-4 hover:text-emerald-600 dark:hover:text-emerald-400"
-        >
-          7339895383 (WhatsApp)
-        </a>
-        or use the form below.
-      </p>
-
       {/* Quick links */}
-      <div className="mt-6 grid grid-cols-3 gap-3 px-2 sm:gap-4 sm:px-0">
+      <div className="-mt-6 grid grid-cols-3 gap-3 sm:gap-4">
         <a
           href="mailto:singhdikshant200@gmail.com"
           className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
@@ -128,13 +114,13 @@ export default function Contact() {
           WhatsApp
         </a>
         <a
-          href="https://topmate.io/dikshant_441/"
+          href="https://cal.com/dikshant-singh-canxf0/30min"
           target="_blank"
           rel="noreferrer"
           className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
         >
           <BsCalendar2Check className="opacity-70" />
-          Topmate
+          Cal.com
         </a>
       </div>
 
@@ -144,7 +130,7 @@ export default function Contact() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="mt-8"
+        className="mt-6"
       >
         <div className="mx-auto max-w-2xl rounded-2xl border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.03] sm:p-6">
           <form
