@@ -1,0 +1,675 @@
+- generic [active] [ref=e1]:
+  - banner:
+    - navigation [ref=e3]:
+      - list [ref=e4]:
+        - listitem [ref=e5]:
+          - link "Home" [ref=e6] [cursor=pointer]:
+            - /url: "#home"
+            - text: Home
+        - listitem [ref=e8]:
+          - link "About" [ref=e9] [cursor=pointer]:
+            - /url: "#about"
+        - listitem [ref=e10]:
+          - link "Career" [ref=e11] [cursor=pointer]:
+            - /url: "#career"
+        - listitem [ref=e12]:
+          - link "Projects" [ref=e13] [cursor=pointer]:
+            - /url: "#projects"
+        - listitem [ref=e14]:
+          - link "Skills" [ref=e15] [cursor=pointer]:
+            - /url: "#skills"
+        - listitem [ref=e16]:
+          - link "Contact" [ref=e17] [cursor=pointer]:
+            - /url: "#contact"
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: Open to opportunities
+        - heading "Dikshant Singh" [level=1] [ref=e25]
+        - paragraph [ref=e27]: With ~2 years of experience shipping production software, I work across product engineering, backend systems, and protocol-level infrastructure. My recent work spans real-time applications, distributed systems, and low-level networking, and I adapt quickly to the tools a problem demands. Currently SDE at Chainscore Labs, and I also take on freelance and side-project work building products end to end. Open to full-stack, frontend, backend, distributed systems, and systems software roles.
+        - generic [ref=e28]:
+          - generic [ref=e29]: Frontend & Backend
+          - generic [ref=e30]: Distributed Systems
+          - generic [ref=e31]: Protocol & Network Engineering
+          - generic [ref=e32]: Freelance & Side Projects
+        - generic [ref=e33]:
+          - link "Contact me" [ref=e34] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Contact me
+            - img [ref=e35]
+          - button "Preview Resume" [ref=e37] [cursor=pointer]:
+            - text: Preview Resume
+            - img [ref=e38]
+          - generic [ref=e40]:
+            - link "LinkedIn" [ref=e41] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/dikshant-singh/
+              - img [ref=e42]
+            - link "GitHub" [ref=e44] [cursor=pointer]:
+              - /url: https://github.com/Dikshant441
+              - img [ref=e45]
+            - link "Twitter/X" [ref=e47] [cursor=pointer]:
+              - /url: https://x.com/Dikshant441
+              - img [ref=e48]
+            - link "Cal.com" [ref=e50] [cursor=pointer]:
+              - /url: https://cal.com/dikshant-singh-canxf0/30min
+              - img [ref=e51]
+      - generic [ref=e55]:
+        - generic [ref=e806]: 👋
+        - img "Dikshant Singh" [ref=e57]
+    - generic [ref=e58]:
+      - generic [ref=e60]:
+        - heading "Background & Focus" [level=2] [ref=e61]
+        - paragraph [ref=e62]: A curious builder blending full-stack craft with AI, LLMs, MCP & Agentic Workflows.
+      - generic [ref=e63]:
+        - paragraph [ref=e64]:
+          - text: Hi, I'm Dikshant
+          - generic [ref=e65]: 👋
+        - paragraph [ref=e66]: I'm a Software Development Engineer with ~2 years of full-time engineering experience. I currently work at Chainscore Labs, where I started as an intern and now contribute as a full-time SDE.
+        - paragraph [ref=e67]: "My day-to-day spans the full stack and goes a few layers below it. I've built complete trading frontends in Next.js / React / TypeScript, shipped Nest.js, Node.js / Express APIs with WebSocket services supporting thousands of concurrent users, and currently work on lower-level systems: architecting computational pipelines and consensus mechanisms in Python, and contributing to a high-performance SDK in C for a decentralized compute protocol (JAM, in the Polkadot ecosystem)."
+        - paragraph [ref=e68]: Less than any single domain, what pulls me in are problems where correctness, performance, and concurrency actually matter - APIs under load, real-time data, networking, protocols, virtual machines.
+        - paragraph [ref=e69]: Outside of work
+        - list [ref=e70]:
+          - listitem [ref=e71]:
+            - generic [ref=e73]: Experimenting with agentic workflows and LLM tooling - building RAG systems, custom MCP servers, and eval harnesses to test agent reliability
+          - listitem [ref=e74]:
+            - generic [ref=e76]: Working through System Design problems (LLD + HLD) in C++ and Go
+          - listitem [ref=e77]:
+            - generic [ref=e79]: Building side projects to learn distributed systems internals - most recently Quiver, a QUIC-native pub/sub message broker written from scratch in Python
+        - paragraph [ref=e81]: 🚀 Currently open to SDE / SDE-2 / Software Engineer roles - especially focused on frontend, backend, distributed systems, networking, or systems software. If you're hiring or know of a fit, I'd love to hear from you.
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: ~2 yrs
+            - generic [ref=e85]: Production engineering
+          - generic [ref=e86]:
+            - generic [ref=e87]: 10k+
+            - generic [ref=e88]: Concurrent users served
+          - generic [ref=e89]:
+            - generic [ref=e90]: 350+
+            - generic [ref=e91]: LeetCode solved
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - heading "Where I've been & built" [level=2] [ref=e94]
+        - paragraph [ref=e95]: Roles, rooms, and what shipped out of each.
+      - list [ref=e96]:
+        - listitem [ref=e98]:
+          - img [ref=e101]
+          - generic [ref=e104]:
+            - generic [ref=e105]: Jul 2024 - Present
+            - generic [ref=e106]: Current
+          - generic [ref=e108]:
+            - heading "Software Development Engineer" [level=3] [ref=e109]
+            - paragraph [ref=e110]:
+              - generic [ref=e111]: Chainscore Labs
+              - generic [ref=e112]: •
+              - generic [ref=e113]: Pune, India
+            - paragraph [ref=e114]: Joined in July 2024 as an intern and 3 month later transitioned to full-time SDE. Work spans the full stack and a few layers below it - from real-time trading UIs to protocol-level SDKs. Currently focused on systems where correctness, performance, and concurrency actually matter.
+            - list [ref=e115]:
+              - listitem [ref=e116]:
+                - img [ref=e117]
+                - generic [ref=e119]: Built a responsive, feature-rich UI for a staking, casino, and sports betting platform using React, TypeScript, Redux Toolkit, and GSAP, integrating crypto wallets with Wagmi and RainbowKit for seamless user onboarding.
+              - listitem [ref=e120]:
+                - img [ref=e121]
+                - generic [ref=e123]: Engineered a real-time notification system using Server-Sent Events (SSE), enabling low-latency live updates across enterprise workflows.
+              - listitem [ref=e124]:
+                - img [ref=e125]
+                - generic [ref=e127]: Developed Node.js / Express APIs with WebSocket services for real-time data, transaction handling, and secure wallet deposit / withdrawal flows, supporting thousands of concurrent users.
+              - listitem [ref=e128]:
+                - img [ref=e129]
+                - generic [ref=e131]: Co-developing JAM (Join-Accumulate Machine) - Polkadot's next-gen protocol from Gavin Wood.
+              - listitem [ref=e132]:
+                - img [ref=e133]
+                - generic [ref=e135]: Contributing to a high-performance SDK in C with QUIC / TLS 1.3 networking - designed for 1,000+ validators at sub-2s latency.
+              - listitem [ref=e136]:
+                - img [ref=e137]
+                - generic [ref=e139]: "Architecting computational pipelines and consensus mechanisms in Python: off-chain auditing, dispute resolution, work-report distribution, adaptive tranche logic."
+              - listitem [ref=e140]:
+                - img [ref=e141]
+                - generic [ref=e143]: Shipped 20k+ LOC to TelosX, a Layer-1 crypto exchange - trading frontends in Next.js + TypeScript with real-time WebSocket feeds, ~40% UI perf improvement for 10k+ users.
+              - listitem [ref=e144]:
+                - img [ref=e145]
+                - generic [ref=e147]: Built Node.js / Express APIs with WebSocket services supporting thousands of concurrent users.
+            - list [ref=e148]:
+              - listitem [ref=e149]: C
+              - listitem [ref=e150]: Python
+              - listitem [ref=e151]: TypeScript
+              - listitem [ref=e152]: Next.js
+              - listitem [ref=e153]: Node.js
+              - listitem [ref=e154]: QUIC
+              - listitem [ref=e155]: TLS 1.3
+              - listitem [ref=e156]: WebSockets
+              - listitem [ref=e157]: Polkadot
+              - listitem [ref=e158]: Redux
+        - listitem [ref=e159]:
+          - img [ref=e162]
+          - generic [ref=e165]: Mar 2024 - May 2024
+          - generic [ref=e166]:
+            - heading "Full Stack Engineering Intern" [level=3] [ref=e167]
+            - paragraph [ref=e168]:
+              - generic [ref=e169]: Elevatifier
+              - generic [ref=e170]: •
+              - generic [ref=e171]: Remote
+            - paragraph [ref=e172]: Owned backend-heavy slices of a recruiter platform - REST API design, MongoDB modeling, and end-to-end feature delivery alongside the frontend team.
+            - list [ref=e173]:
+              - listitem [ref=e174]:
+                - img [ref=e175]
+                - generic [ref=e177]: Designed and shipped REST APIs in Node.js + Express, integrated with the React / Next.js frontend.
+              - listitem [ref=e178]:
+                - img [ref=e179]
+                - generic [ref=e181]: Optimized MongoDB queries and indexing - meaningful response-time reductions on hot paths.
+              - listitem [ref=e182]:
+                - img [ref=e183]
+                - generic [ref=e185]: Implemented validation, error handling, and auth flows across the stack.
+            - list [ref=e186]:
+              - listitem [ref=e187]: Node.js
+              - listitem [ref=e188]: Express
+              - listitem [ref=e189]: MongoDB
+              - listitem [ref=e190]: React
+              - listitem [ref=e191]: Next.js
+              - listitem [ref=e192]: TypeScript
+              - listitem [ref=e193]: Git
+              - listitem [ref=e194]: Postman
+        - listitem [ref=e195]:
+          - img [ref=e198]
+          - generic [ref=e201]:
+            - generic [ref=e202]: Nov 2020 - Jul 2024
+            - generic [ref=e203]: Education
+          - generic [ref=e204]:
+            - heading "B.Tech, Information Technology" [level=3] [ref=e205]
+            - paragraph [ref=e206]:
+              - generic [ref=e207]: Kamla Nehru Institute of Technology (KNIT)
+              - generic [ref=e208]: •
+              - generic [ref=e209]: Sultanpur, India
+            - paragraph [ref=e210]: Graduated with CGPA 8.4. Strong foundation in computer systems, networks, and software engineering - paired with hands-on full-stack and DSA work that became the launching pad for everything since.
+            - list [ref=e211]:
+              - listitem [ref=e212]:
+                - img [ref=e213]
+                - generic [ref=e215]: "Core CS coursework: DSA, OS, DBMS, Computer Networks, OOP."
+              - listitem [ref=e216]:
+                - img [ref=e217]
+                - generic [ref=e219]: Multiple side projects across the MERN / Next.js stack.
+              - listitem [ref=e220]:
+                - img [ref=e221]
+                - generic [ref=e223]: Active in competitive programming - 350+ problems solved on LeetCode.
+            - list [ref=e224]:
+              - listitem [ref=e225]: C++
+              - listitem [ref=e226]: DSA
+              - listitem [ref=e227]: DBMS
+              - listitem [ref=e228]: OS
+              - listitem [ref=e229]: Computer Networks
+              - listitem [ref=e230]: OOP
+              - listitem [ref=e231]: SQL
+    - generic [ref=e232]:
+      - generic [ref=e233]:
+        - heading "Things I've built & shipped" [level=2] [ref=e234]
+        - paragraph [ref=e235]: Tap any card to see the brief, stack, and how to run it locally.
+      - generic [ref=e236]:
+        - button "Merge-Me Merge-Me Match for developers | chat, build together. A full-stack matchmaking platform that helps developers discover collaborators based on shared stack and interests. Real-time chat, swipe-based interactions, and a hardened auth flow built from scratch. Swipe-based matchmaking with optimistic UI updates Node.js Express PostgreSQL React +6 View details →" [ref=e237] [cursor=pointer]:
+          - generic [ref=e238]:
+            - img [ref=e239]
+            - img "Merge-Me" [ref=e240]
+          - generic [ref=e241]:
+            - heading "Merge-Me" [level=3] [ref=e242]
+            - paragraph [ref=e243]: Match for developers | chat, build together.
+            - paragraph [ref=e244]: A full-stack matchmaking platform that helps developers discover collaborators based on shared stack and interests. Real-time chat, swipe-based interactions, and a hardened auth flow built from scratch.
+            - paragraph [ref=e245]: Swipe-based matchmaking with optimistic UI updates
+            - list [ref=e246]:
+              - listitem [ref=e247]: Node.js
+              - listitem [ref=e248]: Express
+              - listitem [ref=e249]: PostgreSQL
+              - listitem [ref=e250]: React
+              - listitem [ref=e251]: "+6"
+            - generic [ref=e252]: View details →
+        - button "Quiver Quiver A QUIC-native distributed pub/sub broker built from scratch. A real-time pub/sub message broker built entirely on QUIC instead of TCP - every peer connection is mutually authenticated with Ed25519 certificates, with 0-RTT session resumption for sub-millisecond reconnects. Designed around custom wire protocols multiplexed over QUIC streams, inspired by production blockchain networking patterns. Custom application-layer protocol over QUIC streams via aioquic Python 3.13 QUIC aioquic Ed25519 +1 View details →" [ref=e253] [cursor=pointer]:
+          - generic [ref=e254]:
+            - img [ref=e255]
+            - img "Quiver" [ref=e256]
+          - generic [ref=e257]:
+            - heading "Quiver" [level=3] [ref=e258]
+            - paragraph [ref=e259]: A QUIC-native distributed pub/sub broker built from scratch.
+            - paragraph [ref=e260]: A real-time pub/sub message broker built entirely on QUIC instead of TCP - every peer connection is mutually authenticated with Ed25519 certificates, with 0-RTT session resumption for sub-millisecond reconnects. Designed around custom wire protocols multiplexed over QUIC streams, inspired by production blockchain networking patterns.
+            - paragraph [ref=e261]: Custom application-layer protocol over QUIC streams via aioquic
+            - list [ref=e262]:
+              - listitem [ref=e263]: Python 3.13
+              - listitem [ref=e264]: QUIC
+              - listitem [ref=e265]: aioquic
+              - listitem [ref=e266]: Ed25519
+              - listitem [ref=e267]: "+1"
+            - generic [ref=e268]: View details →
+        - button "TelosX Landing Page TelosX Landing Page High-conversion crypto landing page with i18n + CMS. Marketing site for TelosX, an emerging crypto trading platform. Animated hero powered by Framer Motion, full localization, and a dynamic blog backed by Sanity CMS so the marketing team can ship copy without code changes. Sanity Studio integration for content-managed blog Next.js Sanity API Tailwind Framer Motion +1 View details →" [ref=e269] [cursor=pointer]:
+          - generic [ref=e270]:
+            - img [ref=e271]
+            - img "TelosX Landing Page" [ref=e272]
+          - generic [ref=e273]:
+            - heading "TelosX Landing Page" [level=3] [ref=e274]
+            - paragraph [ref=e275]: High-conversion crypto landing page with i18n + CMS.
+            - paragraph [ref=e276]: Marketing site for TelosX, an emerging crypto trading platform. Animated hero powered by Framer Motion, full localization, and a dynamic blog backed by Sanity CMS so the marketing team can ship copy without code changes.
+            - paragraph [ref=e277]: Sanity Studio integration for content-managed blog
+            - list [ref=e278]:
+              - listitem [ref=e279]: Next.js
+              - listitem [ref=e280]: Sanity API
+              - listitem [ref=e281]: Tailwind
+              - listitem [ref=e282]: Framer Motion
+              - listitem [ref=e283]: "+1"
+            - generic [ref=e284]: View details →
+        - button "JAM Protocol Implementation JAM Protocol Implementation The Join-Accumulate Machine for Polkadot. Contributions to JAM Protocol - a major upgrade to the Polkadot ecosystem proposed by Gavin Wood. Documentation covers design choices, core components, and integration points required to run a functional JAM node, from block production and finality to PVM and peer-to-peer networking. QUIC-based peer-to-peer networking implementation Python FastAPI Blockchain QUIC +1 View details →" [ref=e285] [cursor=pointer]:
+          - generic [ref=e286]:
+            - img [ref=e287]
+            - img "JAM Protocol Implementation" [ref=e288]
+          - generic [ref=e289]:
+            - heading "JAM Protocol Implementation" [level=3] [ref=e290]
+            - paragraph [ref=e291]: The Join-Accumulate Machine for Polkadot.
+            - paragraph [ref=e292]: Contributions to JAM Protocol - a major upgrade to the Polkadot ecosystem proposed by Gavin Wood. Documentation covers design choices, core components, and integration points required to run a functional JAM node, from block production and finality to PVM and peer-to-peer networking.
+            - paragraph [ref=e293]: QUIC-based peer-to-peer networking implementation
+            - list [ref=e294]:
+              - listitem [ref=e295]: Python
+              - listitem [ref=e296]: FastAPI
+              - listitem [ref=e297]: Blockchain
+              - listitem [ref=e298]: QUIC
+              - listitem [ref=e299]: "+1"
+            - generic [ref=e300]: View details →
+        - button "CinemaBot-GPT CinemaBot-GPT Personalized movie recommendations via GPT + TMDB. A responsive movie streaming UI that combines the TMDB API with GPT-3.5 for personalized recommendations. Type a vibe (\"sci-fi noir from the 90s\") and the bot returns a curated list with posters, ratings, and trailers. GPT-3.5 prompt pipeline grounded in TMDB results React Redux TMDB API OpenAI +1 View details →" [ref=e301] [cursor=pointer]:
+          - generic [ref=e302]:
+            - img [ref=e303]
+            - img "CinemaBot-GPT" [ref=e304]
+          - generic [ref=e305]:
+            - heading "CinemaBot-GPT" [level=3] [ref=e306]
+            - paragraph [ref=e307]: Personalized movie recommendations via GPT + TMDB.
+            - paragraph [ref=e308]: A responsive movie streaming UI that combines the TMDB API with GPT-3.5 for personalized recommendations. Type a vibe ("sci-fi noir from the 90s") and the bot returns a curated list with posters, ratings, and trailers.
+            - paragraph [ref=e309]: GPT-3.5 prompt pipeline grounded in TMDB results
+            - list [ref=e310]:
+              - listitem [ref=e311]: React
+              - listitem [ref=e312]: Redux
+              - listitem [ref=e313]: TMDB API
+              - listitem [ref=e314]: OpenAI
+              - listitem [ref=e315]: "+1"
+            - generic [ref=e316]: View details →
+        - button "Virtual Cart Virtual Cart Full-featured MERN e-commerce with admin dashboard. An end-to-end e-commerce platform built on the MERN stack - product catalog, cart, checkout, and an admin dashboard for inventory and orders. Material UI for polished components and Stripe for payment processing. Stripe Checkout with webhook-driven order fulfillment React Node.js Express MongoDB +2 View details →" [ref=e317] [cursor=pointer]:
+          - generic [ref=e318]:
+            - img [ref=e319]
+            - img "Virtual Cart" [ref=e320]
+          - generic [ref=e321]:
+            - heading "Virtual Cart" [level=3] [ref=e322]
+            - paragraph [ref=e323]: Full-featured MERN e-commerce with admin dashboard.
+            - paragraph [ref=e324]: An end-to-end e-commerce platform built on the MERN stack - product catalog, cart, checkout, and an admin dashboard for inventory and orders. Material UI for polished components and Stripe for payment processing.
+            - paragraph [ref=e325]: Stripe Checkout with webhook-driven order fulfillment
+            - list [ref=e326]:
+              - listitem [ref=e327]: React
+              - listitem [ref=e328]: Node.js
+              - listitem [ref=e329]: Express
+              - listitem [ref=e330]: MongoDB
+              - listitem [ref=e331]: "+2"
+            - generic [ref=e332]: View details →
+    - generic [ref=e333]:
+      - generic [ref=e334]:
+        - heading "What I reach for" [level=2] [ref=e335]
+        - paragraph [ref=e336]: A glimpse of my daily drivers - not the full list.
+      - generic [ref=e337]:
+        - list [ref=e339]:
+          - listitem [ref=e340]:
+            - img [ref=e341]
+            - generic [ref=e343]: TypeScript
+          - listitem [ref=e344]:
+            - img [ref=e345]
+            - generic [ref=e347]: JavaScript
+          - listitem [ref=e348]:
+            - img [ref=e349]
+            - generic [ref=e351]: C
+          - listitem [ref=e352]:
+            - img [ref=e353]
+            - generic [ref=e355]: C++
+          - listitem [ref=e356]:
+            - img [ref=e357]
+            - generic [ref=e359]: Python
+          - listitem [ref=e360]:
+            - img [ref=e361]
+            - generic [ref=e363]: Rust
+          - listitem [ref=e364]:
+            - img [ref=e365]
+            - generic [ref=e367]: Go
+          - listitem [ref=e368]:
+            - img [ref=e369]
+            - generic [ref=e371]: React
+          - listitem [ref=e372]:
+            - img [ref=e373]
+            - generic [ref=e375]: Next.js
+          - listitem [ref=e376]:
+            - img [ref=e377]
+            - generic [ref=e379]: Redux
+          - listitem [ref=e380]:
+            - img [ref=e381]
+            - generic [ref=e383]: Redux Toolkit
+          - listitem [ref=e384]:
+            - img [ref=e385]
+            - generic [ref=e387]: Node.js
+          - listitem [ref=e388]:
+            - img [ref=e389]
+            - generic [ref=e391]: Express
+          - listitem [ref=e392]:
+            - img [ref=e393]
+            - generic [ref=e395]: NestJS
+          - listitem [ref=e396]:
+            - img [ref=e397]
+            - generic [ref=e399]: FastAPI
+          - listitem [ref=e400]:
+            - img [ref=e401]
+            - generic [ref=e403]: GSAP
+          - listitem [ref=e404]:
+            - img [ref=e405]
+            - generic [ref=e407]: Framer Motion
+          - listitem [ref=e408]:
+            - img [ref=e409]
+            - generic [ref=e411]: Tailwind CSS
+          - listitem [ref=e412]:
+            - img [ref=e413]
+            - generic [ref=e415]: DaisyUI
+          - listitem [ref=e416]:
+            - img [ref=e417]
+            - generic [ref=e419]: TypeScript
+          - listitem [ref=e420]:
+            - img [ref=e421]
+            - generic [ref=e423]: JavaScript
+          - listitem [ref=e424]:
+            - img [ref=e425]
+            - generic [ref=e427]: C
+          - listitem [ref=e428]:
+            - img [ref=e429]
+            - generic [ref=e431]: C++
+          - listitem [ref=e432]:
+            - img [ref=e433]
+            - generic [ref=e435]: Python
+          - listitem [ref=e436]:
+            - img [ref=e437]
+            - generic [ref=e439]: Rust
+          - listitem [ref=e440]:
+            - img [ref=e441]
+            - generic [ref=e443]: Go
+          - listitem [ref=e444]:
+            - img [ref=e445]
+            - generic [ref=e447]: React
+          - listitem [ref=e448]:
+            - img [ref=e449]
+            - generic [ref=e451]: Next.js
+          - listitem [ref=e452]:
+            - img [ref=e453]
+            - generic [ref=e455]: Redux
+          - listitem [ref=e456]:
+            - img [ref=e457]
+            - generic [ref=e459]: Redux Toolkit
+          - listitem [ref=e460]:
+            - img [ref=e461]
+            - generic [ref=e463]: Node.js
+          - listitem [ref=e464]:
+            - img [ref=e465]
+            - generic [ref=e467]: Express
+          - listitem [ref=e468]:
+            - img [ref=e469]
+            - generic [ref=e471]: NestJS
+          - listitem [ref=e472]:
+            - img [ref=e473]
+            - generic [ref=e475]: FastAPI
+          - listitem [ref=e476]:
+            - img [ref=e477]
+            - generic [ref=e479]: GSAP
+          - listitem [ref=e480]:
+            - img [ref=e481]
+            - generic [ref=e483]: Framer Motion
+          - listitem [ref=e484]:
+            - img [ref=e485]
+            - generic [ref=e487]: Tailwind CSS
+          - listitem [ref=e488]:
+            - img [ref=e489]
+            - generic [ref=e491]: DaisyUI
+        - list [ref=e493]:
+          - listitem [ref=e494]:
+            - img [ref=e495]
+            - generic [ref=e497]: Material UI
+          - listitem [ref=e498]:
+            - img [ref=e499]
+            - generic [ref=e501]: React Router
+          - listitem [ref=e502]:
+            - img [ref=e503]
+            - generic [ref=e505]: Vite
+          - listitem [ref=e506]:
+            - img [ref=e507]
+            - generic [ref=e509]: HTML
+          - listitem [ref=e510]:
+            - img [ref=e511]
+            - generic [ref=e513]: CSS
+          - listitem [ref=e514]:
+            - img [ref=e515]
+            - generic [ref=e517]: MongoDB
+          - listitem [ref=e518]:
+            - img [ref=e519]
+            - generic [ref=e521]: PostgreSQL
+          - listitem [ref=e522]:
+            - img [ref=e523]
+            - generic [ref=e525]: NeonDB
+          - listitem [ref=e526]:
+            - img [ref=e527]
+            - generic [ref=e529]: Supabase
+          - listitem [ref=e530]:
+            - img [ref=e531]
+            - generic [ref=e533]: Prisma
+          - listitem [ref=e534]:
+            - img [ref=e535]
+            - generic [ref=e537]: Google Firebase
+          - listitem [ref=e538]:
+            - generic [ref=e539]: QUIC Protocol
+          - listitem [ref=e540]:
+            - img [ref=e541]
+            - generic [ref=e543]: WebSockets
+          - listitem [ref=e544]:
+            - generic [ref=e545]: aioquic
+          - listitem [ref=e546]:
+            - generic [ref=e547]: Ed25519
+          - listitem [ref=e548]:
+            - generic [ref=e549]: Blockchain
+          - listitem [ref=e550]:
+            - img [ref=e551]
+            - generic [ref=e553]: Polkadot
+          - listitem [ref=e554]:
+            - generic [ref=e555]: Web3
+          - listitem [ref=e556]:
+            - generic [ref=e557]: Wagmi
+          - listitem [ref=e558]:
+            - img [ref=e559]
+            - generic [ref=e561]: Material UI
+          - listitem [ref=e562]:
+            - img [ref=e563]
+            - generic [ref=e565]: React Router
+          - listitem [ref=e566]:
+            - img [ref=e567]
+            - generic [ref=e569]: Vite
+          - listitem [ref=e570]:
+            - img [ref=e571]
+            - generic [ref=e573]: HTML
+          - listitem [ref=e574]:
+            - img [ref=e575]
+            - generic [ref=e577]: CSS
+          - listitem [ref=e578]:
+            - img [ref=e579]
+            - generic [ref=e581]: MongoDB
+          - listitem [ref=e582]:
+            - img [ref=e583]
+            - generic [ref=e585]: PostgreSQL
+          - listitem [ref=e586]:
+            - img [ref=e587]
+            - generic [ref=e589]: NeonDB
+          - listitem [ref=e590]:
+            - img [ref=e591]
+            - generic [ref=e593]: Supabase
+          - listitem [ref=e594]:
+            - img [ref=e595]
+            - generic [ref=e597]: Prisma
+          - listitem [ref=e598]:
+            - img [ref=e599]
+            - generic [ref=e601]: Google Firebase
+          - listitem [ref=e602]:
+            - generic [ref=e603]: QUIC Protocol
+          - listitem [ref=e604]:
+            - img [ref=e605]
+            - generic [ref=e607]: WebSockets
+          - listitem [ref=e608]:
+            - generic [ref=e609]: aioquic
+          - listitem [ref=e610]:
+            - generic [ref=e611]: Ed25519
+          - listitem [ref=e612]:
+            - generic [ref=e613]: Blockchain
+          - listitem [ref=e614]:
+            - img [ref=e615]
+            - generic [ref=e617]: Polkadot
+          - listitem [ref=e618]:
+            - generic [ref=e619]: Web3
+          - listitem [ref=e620]:
+            - generic [ref=e621]: Wagmi
+        - list [ref=e623]:
+          - listitem [ref=e624]:
+            - generic [ref=e625]: RainbowKit
+          - listitem [ref=e626]:
+            - img [ref=e627]
+            - generic [ref=e629]: Auth0
+          - listitem [ref=e630]:
+            - img [ref=e631]
+            - generic [ref=e633]: Clerk
+          - listitem [ref=e634]:
+            - img [ref=e635]
+            - generic [ref=e637]: JWT
+          - listitem [ref=e638]:
+            - img [ref=e639]
+            - generic [ref=e641]: Razorpay
+          - listitem [ref=e642]:
+            - img [ref=e643]
+            - generic [ref=e645]: Cloudinary
+          - listitem [ref=e646]:
+            - img [ref=e647]
+            - generic [ref=e649]: OpenAI
+          - listitem [ref=e650]:
+            - generic [ref=e651]: AI
+          - listitem [ref=e652]:
+            - img [ref=e653]
+            - generic [ref=e655]: Jest
+          - listitem [ref=e656]:
+            - img [ref=e657]
+            - generic [ref=e659]: Git
+          - listitem [ref=e660]:
+            - img [ref=e661]
+            - generic [ref=e663]: GitHub
+          - listitem [ref=e664]:
+            - img [ref=e665]
+            - generic [ref=e667]: Docker
+          - listitem [ref=e668]:
+            - img [ref=e669]
+            - generic [ref=e671]: Linux
+          - listitem [ref=e672]:
+            - img [ref=e673]
+            - generic [ref=e675]: Postman
+          - listitem [ref=e676]:
+            - img [ref=e677]
+            - generic [ref=e679]: Figma
+          - listitem [ref=e680]:
+            - img [ref=e681]
+            - generic [ref=e683]: AWS
+          - listitem [ref=e684]:
+            - img [ref=e685]
+            - generic [ref=e687]: AWS EC2
+          - listitem [ref=e688]:
+            - img [ref=e689]
+            - generic [ref=e691]: Azure
+          - listitem [ref=e692]:
+            - img [ref=e693]
+            - generic [ref=e695]: Vercel
+          - listitem [ref=e696]:
+            - generic [ref=e697]: RainbowKit
+          - listitem [ref=e698]:
+            - img [ref=e699]
+            - generic [ref=e701]: Auth0
+          - listitem [ref=e702]:
+            - img [ref=e703]
+            - generic [ref=e705]: Clerk
+          - listitem [ref=e706]:
+            - img [ref=e707]
+            - generic [ref=e709]: JWT
+          - listitem [ref=e710]:
+            - img [ref=e711]
+            - generic [ref=e713]: Razorpay
+          - listitem [ref=e714]:
+            - img [ref=e715]
+            - generic [ref=e717]: Cloudinary
+          - listitem [ref=e718]:
+            - img [ref=e719]
+            - generic [ref=e721]: OpenAI
+          - listitem [ref=e722]:
+            - generic [ref=e723]: AI
+          - listitem [ref=e724]:
+            - img [ref=e725]
+            - generic [ref=e727]: Jest
+          - listitem [ref=e728]:
+            - img [ref=e729]
+            - generic [ref=e731]: Git
+          - listitem [ref=e732]:
+            - img [ref=e733]
+            - generic [ref=e735]: GitHub
+          - listitem [ref=e736]:
+            - img [ref=e737]
+            - generic [ref=e739]: Docker
+          - listitem [ref=e740]:
+            - img [ref=e741]
+            - generic [ref=e743]: Linux
+          - listitem [ref=e744]:
+            - img [ref=e745]
+            - generic [ref=e747]: Postman
+          - listitem [ref=e748]:
+            - img [ref=e749]
+            - generic [ref=e751]: Figma
+          - listitem [ref=e752]:
+            - img [ref=e753]
+            - generic [ref=e755]: AWS
+          - listitem [ref=e756]:
+            - img [ref=e757]
+            - generic [ref=e759]: AWS EC2
+          - listitem [ref=e760]:
+            - img [ref=e761]
+            - generic [ref=e763]: Azure
+          - listitem [ref=e764]:
+            - img [ref=e765]
+            - generic [ref=e767]: Vercel
+    - generic [ref=e768]:
+      - generic [ref=e769]:
+        - heading "Let's get in touch" [level=2] [ref=e770]
+        - paragraph [ref=e771]: Email, WhatsApp, or the form below. I usually reply within a day.
+      - generic [ref=e772]:
+        - link "Email" [ref=e773] [cursor=pointer]:
+          - /url: mailto:singhdikshant200@gmail.com
+          - img [ref=e774]
+          - text: Email
+        - link "WhatsApp" [ref=e777] [cursor=pointer]:
+          - /url: https://wa.me/917339895383
+          - img [ref=e778]
+          - text: WhatsApp
+        - link "Book meeting" [ref=e780] [cursor=pointer]:
+          - /url: https://cal.com/dikshant-singh-canxf0/30min
+          - img [ref=e781]
+          - text: Book meeting
+      - generic [ref=e787]:
+        - generic [ref=e788]:
+          - generic [ref=e789]: Your email
+          - generic [ref=e790]:
+            - generic:
+              - img
+            - textbox "Your email" [ref=e791]:
+              - /placeholder: you@example.com
+        - generic [ref=e792]:
+          - generic [ref=e793]: Your message
+          - generic [ref=e794]:
+            - generic:
+              - img
+            - textbox "Your message" [ref=e795]:
+              - /placeholder: What are you working on?
+        - button "Submit" [ref=e797] [cursor=pointer]:
+          - text: Submit
+          - img [ref=e798]
+  - contentinfo [ref=e800]:
+    - generic [ref=e801]: © 2026 Dikshant Singh. All rights reserved.
+  - button [ref=e802] [cursor=pointer]:
+    - img [ref=e804]
+  - alert [ref=e807]

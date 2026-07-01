@@ -49,7 +49,7 @@ export default function Intro() {
     return (
         <>
             <section
-                className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 md:flex-row md:items-center md:gap-12 lg:gap-16"
+                className="relative mx-auto flex w-full max-w-5xl flex-col items-center gap-12 px-2 md:flex-row xl:items-center xl:gap-12 xl:px-0 lg:gap-12"
                 id="home"
                 ref={ref}
             >
@@ -67,7 +67,7 @@ export default function Intro() {
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                         </span>
-                        Open to SDE / SDE-2 roles
+                        Open to full-time / contract / freelance opportunities
                     </motion.div>
 
                     {/* Name */}
@@ -92,7 +92,9 @@ export default function Intro() {
                         With <span className="font-semibold text-gray-900 dark:text-white">~2 years</span> of experience shipping production software, I work across{" "}
                         <span className="font-semibold text-gray-900 dark:text-white">product engineering, backend systems, and protocol-level infrastructure</span>.
                         My recent work spans real-time applications, distributed systems, and low-level networking, and I adapt quickly to the tools a problem demands.
-                        Currently SDE at <span className="font-semibold text-gray-900 dark:text-white">Chainscore Labs</span>, open to full-stack, frontend, backend, distributed systems, and systems software roles.
+                        Currently SDE at <span className="font-semibold text-gray-900 dark:text-white">Chainscore Labs</span>, and I also take on{" "}
+                        <span className="font-semibold text-gray-900 dark:text-white">freelance and side-project work</span> building products end to end.
+                        Open to full-stack, frontend, backend, distributed systems, and systems software roles.
                     </motion.p>
 
                     {/* Badges */}
