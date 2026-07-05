@@ -13,7 +13,7 @@ export default function Experience() {
     <section
       id="career"
       ref={ref}
-      className="relative scroll-mt-24 mb-24 w-full max-w-4xl"
+      className="relative scroll-mt-24 mb-16 sm:mb-24 w-full max-w-4xl"
     >
       <SectionHeading
         accent="been & built"

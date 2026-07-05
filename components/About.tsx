@@ -10,7 +10,7 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="mb-24 mt-16 max-w-[70rem] scroll-mt-24"
+      className="mb-14 mt-10 sm:mb-24 sm:mt-16 max-w-[70rem] scroll-mt-24"
       initial={{ opacity: 0, y: 70 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}

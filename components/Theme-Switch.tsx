@@ -10,17 +10,11 @@ export default function ThemeSwitch() {
 
   return (
     <button
-      className={`fixed bottom-5 right-5 flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-white bg-opacity-80 backdrop-blur-[0.5rem] transition-all hover:scale-[1.15] active:scale-105 dark:bg-gray-950 ${
-        isLight
-          ? "border border-gray-200 shadow-sm"
-          : "border border-white/40"
-      }`}
+      className="fixed top-2 right-4 z-[1000] sm:top-auto sm:bottom-5 sm:right-5 flex h-[3rem] w-[3rem] items-center justify-center rounded-full transition-all hover:scale-[1.15] active:scale-105 sm:border sm:border-gray-200 sm:bg-white sm:bg-opacity-80 sm:shadow-sm sm:backdrop-blur-[0.5rem] dark:sm:border-white/40 dark:sm:bg-gray-950"
       onClick={toggleTheme}
     >
       {isLight ? (
-        <span className="flex items-center justify-center rounded-full border border-amber-400/80 p-1 text-amber-500">
-          <BsSun className="text-sm" />
-        </span>
+        <BsSun className="text-gray-900" />
       ) : (
         <BsMoon className="text-white" />
       )}

@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
 import Header from '@/components/Header';
+import MobileNav from '@/components/MobileNav';
 import ActiveSectionContextProvider from '@/context/active-section-context';
 import ThemeSwitch from '@/components/Theme-Switch';
 import ThemeContextProvider from '@/context/Theme-Context';
@@ -23,10 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='!scroll-smooth'>
-      <body className={`${inter.className} ${mono.variable} ${serif.variable} bg-gray-100 text-gray-950 relative pt-28 sm:pt-36 overflow-x-hidden dark:bg-zinc-950 dark:text-gray-50 dark:text-opacity-90`}>
+      <body className={`${inter.className} ${mono.variable} ${serif.variable} bg-gray-100 text-gray-950 relative pt-20 pb-16 sm:pt-36 sm:pb-0 overflow-x-hidden dark:bg-zinc-950 dark:text-gray-50 dark:text-opacity-90`}>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header />
+            <MobileNav />
             {children}
             <Footer />
             <Toaster position='top-right' />

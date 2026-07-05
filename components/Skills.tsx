@@ -174,7 +174,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-24 max-w-[53rem] scroll-mt-24 text-center"
+      className="mb-16 sm:mb-24 max-w-[53rem] scroll-mt-24 text-center"
     >
       <SectionHeading
         accent="reach for"
