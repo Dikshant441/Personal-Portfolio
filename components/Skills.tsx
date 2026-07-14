@@ -137,8 +137,8 @@ function MarqueeRow({ items, direction, duration }: MarqueeRowProps) {
   return (
     <div className="relative overflow-hidden py-2">
       {/* edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-gray-100 to-transparent dark:from-zinc-950" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-gray-100 to-transparent dark:from-zinc-950" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
 
       <motion.ul
         className="flex w-max gap-3"
@@ -155,9 +155,9 @@ function MarqueeRow({ items, direction, duration }: MarqueeRowProps) {
           return (
             <li
               key={`${skill}-${idx}`}
-              className="bg-white/90 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-2.5 flex items-center gap-2 text-gray-900 dark:text-white/85 whitespace-nowrap"
+              className="flex items-center gap-2 whitespace-nowrap rounded-md border border-border bg-card px-4 py-2.5 text-foreground shadow-sm"
             >
-              {Icon && <Icon className="h-5 w-5 flex-shrink-0" />}
+              {Icon && <Icon className="h-5 w-5 flex-shrink-0 text-muted-foreground" />}
               <span className="text-sm sm:text-base">{skill}</span>
             </li>
           );
@@ -177,8 +177,7 @@ export default function Skills() {
       className="mb-16 sm:mb-24 max-w-[53rem] scroll-mt-24 text-center"
     >
       <SectionHeading
-        accent="reach for"
-        accentVariant="solid"
+        eyebrow="Toolkit"
         subtitle="A glimpse of my daily drivers - not the full list."
       >
         What I reach for

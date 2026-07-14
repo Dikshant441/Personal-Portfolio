@@ -5,8 +5,6 @@ import React from "react";
 type SectionHeadingProps = {
   children: React.ReactNode;
   eyebrow?: string;
-  accent?: string;
-  accentVariant?: "gradient" | "marker" | "italic" | "solid" | "squiggle";
   subtitle?: string;
   align?: "center" | "left";
   className?: string;
@@ -25,20 +23,24 @@ export default function SectionHeading({
     <div
       className={`${
         isCenter ? "text-center" : "text-left"
-      } mb-7 sm:mb-8 ${className}`}
+      } mb-10 sm:mb-14 ${className}`}
     >
       {eyebrow && (
-        <p className="text-left text-sm text-gray-500 dark:text-white/60">{eyebrow}</p>
+        <div className="mb-6 flex items-center gap-4">
+          {isCenter && <span aria-hidden className="rule flex-1" />}
+          <span className="small-caps text-accent">{eyebrow}</span>
+          <span aria-hidden className="rule flex-1" />
+        </div>
       )}
 
-      <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h2 className="font-serif text-3xl leading-[1.2] tracking-[-0.01em] text-foreground sm:text-4xl">
         {children}
       </h2>
 
       {subtitle && (
         <p
-          className={`mt-2 text-base sm:text-lg text-gray-600 dark:text-white/65 ${
-            isCenter ? "max-w-2xl mx-auto" : "max-w-2xl"
+          className={`mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg ${
+            isCenter ? "mx-auto" : ""
           }`}
         >
           {subtitle}

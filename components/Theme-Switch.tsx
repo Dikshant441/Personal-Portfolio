@@ -10,13 +10,14 @@ export default function ThemeSwitch() {
 
   return (
     <button
-      className="fixed top-2 right-4 z-[1000] sm:top-auto sm:bottom-5 sm:right-5 flex h-[3rem] w-[3rem] items-center justify-center rounded-full transition-all hover:scale-[1.15] active:scale-105 sm:border sm:border-gray-200 sm:bg-white sm:bg-opacity-80 sm:shadow-sm sm:backdrop-blur-[0.5rem] dark:sm:border-white/40 dark:sm:bg-gray-950"
+      className="fixed top-2 right-4 z-[1000] sm:top-auto sm:bottom-5 sm:right-5 flex h-[3rem] w-[3rem] items-center justify-center rounded-full transition-all hover:scale-[1.15] active:scale-105 sm:border sm:border-border sm:bg-card/85 sm:shadow-sm sm:backdrop-blur-[0.5rem]"
       onClick={toggleTheme}
+      aria-label={isLight ? "Switch to dark theme" : "Switch to light theme"}
     >
       {isLight ? (
-        <BsSun className="text-gray-900" />
+        <BsSun className="text-accent" />
       ) : (
-        <BsMoon className="text-white" />
+        <BsMoon className="text-accent" />
       )}
     </button>
   );

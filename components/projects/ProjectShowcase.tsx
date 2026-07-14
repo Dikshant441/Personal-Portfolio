@@ -22,7 +22,7 @@ export default function ProjectShowcase({ project, index }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5, delay: 0.05 }}
-      className="relative overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-6 backdrop-blur dark:border-white/10 dark:bg-white/5 sm:p-8"
+      className="relative overflow-hidden rounded-lg border border-border border-t-2 border-t-accent bg-card p-6 shadow-sm sm:p-8"
     >
       <div
         className={`grid gap-8 lg:grid-cols-2 lg:items-stretch ${
@@ -36,16 +36,16 @@ export default function ProjectShowcase({ project, index }: Props) {
         />
 
         <div className="flex flex-col">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-500 dark:text-indigo-300">
+          <span className="small-caps text-accent">
             Project 0{index + 1}
           </span>
-          <h3 className="mt-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          <h3 className="mt-2 font-serif text-2xl leading-[1.2] text-foreground sm:text-3xl">
             {project.title}
           </h3>
-          <p className="mt-2 text-base font-medium text-indigo-600/90 dark:text-indigo-300/90">
+          <p className="mt-2 text-base font-medium text-accent">
             {project.tagline}
           </p>
-          <p className="mt-4 text-[0.95rem] leading-relaxed text-gray-700 dark:text-white/75">
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-muted-foreground">
             {project.description}
           </p>
 
@@ -53,11 +53,11 @@ export default function ProjectShowcase({ project, index }: Props) {
             {project.highlights.map((h) => (
               <li
                 key={h}
-                className="flex gap-2 text-sm text-gray-700 dark:text-white/70"
+                className="flex gap-2 text-sm text-muted-foreground"
               >
                 <span
                   aria-hidden
-                  className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-400 dark:bg-white/40"
+                  className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rotate-45 bg-accent"
                 />
                 <span>{h}</span>
               </li>
@@ -68,7 +68,7 @@ export default function ProjectShowcase({ project, index }: Props) {
             {project.tech.map((t) => (
               <li
                 key={t}
-                className="rounded-full border border-black/10 bg-white px-2.5 py-1 text-[0.7rem] font-medium uppercase tracking-wider text-gray-700 dark:border-white/15 dark:bg-white/5 dark:text-white/80"
+                className="rounded-sm border border-border bg-background px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.12em] text-muted-foreground"
               >
                 {t}
               </li>
@@ -81,7 +81,7 @@ export default function ProjectShowcase({ project, index }: Props) {
                 href={project.demoUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-white/90"
+                className="inline-flex min-h-[44px] touch-manipulation items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium tracking-[0.05em] text-accent-foreground shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-secondary hover:shadow-md active:translate-y-0"
               >
                 {project.demoLabel ?? "Live Demo"}
                 <ArrowIcon />
@@ -92,7 +92,7 @@ export default function ProjectShowcase({ project, index }: Props) {
                 href={project.repoUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-50 dark:border-white/20 dark:bg-transparent dark:text-white dark:hover:bg-white/10"
+                className="inline-flex min-h-[44px] touch-manipulation items-center gap-2 rounded-md border border-foreground bg-transparent px-4 py-2 text-sm font-medium tracking-[0.05em] text-foreground transition-all duration-200 ease-out hover:border-accent hover:bg-muted hover:text-accent"
               >
                 <GitHubIcon />
                 View Code

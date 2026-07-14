@@ -25,7 +25,7 @@ export default function ProjectMedia({ videoUrl, imageUrl, title }: Props) {
     const ytEmbed = getYouTubeEmbed(videoUrl);
     if (ytEmbed) {
       return (
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black lg:aspect-auto lg:h-full lg:min-h-[420px]">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-black lg:aspect-auto lg:h-full lg:min-h-[420px]">
           <iframe
             src={ytEmbed}
             title={`${title} demo video`}
@@ -41,7 +41,7 @@ export default function ProjectMedia({ videoUrl, imageUrl, title }: Props) {
     if (/\.(mp4|webm|mov)$/i.test(videoUrl)) {
       return (
         <div
-          className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black lg:aspect-auto lg:h-full lg:min-h-[420px]"
+          className="relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-black lg:aspect-auto lg:h-full lg:min-h-[420px]"
           onMouseEnter={() => {
             setHovered(true);
             videoRef.current?.play().catch(() => {});
@@ -80,7 +80,7 @@ export default function ProjectMedia({ videoUrl, imageUrl, title }: Props) {
   }
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-gray-900 lg:aspect-auto lg:h-full lg:min-h-[420px]">
+    <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-muted lg:aspect-auto lg:h-full lg:min-h-[420px]">
       <Image
         src={imageUrl}
         alt=""

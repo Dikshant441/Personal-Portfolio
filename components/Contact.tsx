@@ -89,39 +89,29 @@ export default function Contact() {
       }}
     >
       <SectionHeading
-        accent="get in touch"
+        eyebrow="Contact"
         subtitle="Email, WhatsApp, or the form below. I usually reply within a day."
       >
         Let&apos;s get in touch
       </SectionHeading>
 
       {/* Quick links */}
-      <div className="-mt-6 grid grid-cols-3 gap-3 sm:gap-4">
-        <a
-          href="mailto:singhdikshant200@gmail.com"
-          className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
-        >
-          <FiMail className="opacity-70" />
-          Email
-        </a>
-        <a
-          href="https://wa.me/917339895383"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
-        >
-          <FaWhatsapp className="opacity-80" />
-          WhatsApp
-        </a>
-        <a
-          href="https://cal.com/dikshant-singh-canxf0/30min"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white py-3 text-sm text-gray-800 transition hover:border-black/20 hover:bg-gray-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/85 dark:hover:bg-white/10 sm:py-3.5 sm:text-base"
-        >
-          <BsCalendar2Check className="opacity-70" />
-          Book meeting
-        </a>
+      <div className="grid grid-cols-3 gap-3 sm:gap-4">
+        {[
+          { href: "mailto:singhdikshant200@gmail.com", label: "Email", icon: <FiMail className="opacity-70" />, external: false },
+          { href: "https://wa.me/917339895383", label: "WhatsApp", icon: <FaWhatsapp className="opacity-80" />, external: true },
+          { href: "https://cal.com/dikshant-singh-canxf0/30min", label: "Book meeting", icon: <BsCalendar2Check className="opacity-70" />, external: true },
+        ].map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
+            className="flex min-h-[44px] touch-manipulation items-center justify-center gap-2 rounded-md border border-border bg-card py-3 text-sm text-foreground shadow-sm transition-all duration-200 ease-out hover:border-accent hover:bg-muted/30 hover:text-accent hover:shadow-md sm:py-3.5 sm:text-base"
+          >
+            {link.icon}
+            {link.label}
+          </a>
+        ))}
       </div>
 
       {/* Form card */}
@@ -132,7 +122,7 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.3 }}
         className="mt-6"
       >
-        <div className="mx-auto max-w-2xl rounded-2xl border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.03] sm:p-6">
+        <div className="mx-auto max-w-2xl rounded-lg border border-border border-t-2 border-t-accent bg-card p-5 shadow-sm sm:p-6">
           <form
             ref={formRef}
             className="flex flex-col gap-4 text-left sm:gap-5"
@@ -140,16 +130,16 @@ export default function Contact() {
           >
             {/* Email field */}
             <motion.div variants={containerVariants}>
-              <label htmlFor="senderEmail" className="mb-1.5 block text-xs font-medium text-gray-600 dark:text-white/60">
+              <label htmlFor="senderEmail" className="mb-2 block font-mono text-[0.65rem] font-medium uppercase tracking-[0.15em] text-muted-foreground">
                 Your email
               </label>
               <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400 dark:text-white/40">
+                <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground/50">
                   <FiMail />
                 </div>
                 <input
                   id="senderEmail"
-                  className="h-12 w-full rounded-lg border border-black/10 bg-white pl-10 pr-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-gray-900 dark:border-white/15 dark:bg-white/[0.04] dark:text-gray-100 dark:placeholder:text-white/35 dark:focus:border-white/60"
+                  className="h-12 w-full rounded-md border border-border bg-transparent pl-10 pr-3 text-sm text-foreground outline-none transition-all duration-150 ease-out placeholder:text-muted-foreground/60 hover:border-muted-foreground/40 focus:border-accent focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-card"
                   name="senderEmail"
                   type="email"
                   required
@@ -162,16 +152,16 @@ export default function Contact() {
 
             {/* Message field */}
             <motion.div variants={containerVariants}>
-              <label htmlFor="message" className="mb-1.5 block text-xs font-medium text-gray-600 dark:text-white/60">
+              <label htmlFor="message" className="mb-2 block font-mono text-[0.65rem] font-medium uppercase tracking-[0.15em] text-muted-foreground">
                 Your message
               </label>
               <div className="relative">
-                <div className="pointer-events-none absolute left-3 top-3 text-gray-400 dark:text-white/40">
+                <div className="pointer-events-none absolute left-3 top-3 text-muted-foreground/50">
                   <FiMessageSquare />
                 </div>
                 <textarea
                   id="message"
-                  className="min-h-40 w-full rounded-lg border border-black/10 bg-white py-3 pl-10 pr-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-gray-900 dark:border-white/15 dark:bg-white/[0.04] dark:text-gray-100 dark:placeholder:text-white/35 dark:focus:border-white/60 sm:min-h-48"
+                  className="min-h-40 w-full rounded-md border border-border bg-transparent py-3 pl-10 pr-3 text-sm text-foreground outline-none transition-all duration-150 ease-out placeholder:text-muted-foreground/60 hover:border-muted-foreground/40 focus:border-accent focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-card sm:min-h-48"
                   name="message"
                   placeholder="What are you working on?"
                   required

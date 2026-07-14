@@ -1,4 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+
+// Tokens are RGB triplets in globals.css so Tailwind opacity
+// modifiers (e.g. bg-accent/10) keep working.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,16 +12,34 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        background: token('background'),
+        foreground: token('foreground'),
+        muted: {
+          DEFAULT: token('muted'),
+          foreground: token('muted-foreground'),
+        },
+        accent: {
+          DEFAULT: token('accent'),
+          secondary: token('accent-secondary'),
+          foreground: token('accent-foreground'),
+        },
+        border: token('border'),
+        card: token('card'),
+        ring: token('ring'),
       },
-      fontSize: {
-        '4.5xl': '2.5rem', // Adjust the size as needed
+      fontFamily: {
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+      },
+      boxShadow: {
+        sm: '0 1px 2px rgba(26, 26, 26, 0.04)',
+        md: '0 4px 12px rgba(26, 26, 26, 0.06)',
+        lg: '0 8px 24px rgba(26, 26, 26, 0.08)',
       },
     },
   },
   plugins: [],
-  darkMode: "class",
+  darkMode: 'class',
 }

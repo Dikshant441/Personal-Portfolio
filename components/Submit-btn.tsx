@@ -5,14 +5,14 @@ export default function SubmitBtn({ pending }: { pending: boolean }) {
     return (
       <button
         type="submit"
-        className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-900 text-white rounded-full outline-none transition-all focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 dark:bg-white dark:bg-opacity-10 disabled:scale-100 disabled:bg-opacity-65"
+        className="group flex min-h-[44px] w-[9rem] touch-manipulation items-center justify-center gap-2 rounded-md bg-accent text-sm font-medium tracking-[0.05em] text-accent-foreground shadow-sm outline-none transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-secondary hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:translate-y-0 disabled:translate-y-0 disabled:opacity-65"
         disabled={pending}
       >
         {pending ? (
-          <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
+          <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-accent-foreground"></div>
         ) : (
           <>
-            Submit{" "}
+            Send message{" "}
             <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />{" "}
           </>
         )}

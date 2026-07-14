@@ -15,7 +15,7 @@ export default function Header() {
         <header className="z-[999] relative">
             {/* ── Mobile top bar (brand) ── */}
             <motion.div
-                className="fixed top-0 left-0 right-0 z-[999] flex h-16 items-center justify-between border-b border-gray-200/70 bg-white/80 px-5 backdrop-blur-[0.5rem] sm:hidden dark:border-white/10 dark:bg-zinc-900/80"
+                className="fixed top-0 left-0 right-0 z-[999] flex h-16 items-center justify-between border-b border-border bg-background/85 px-5 backdrop-blur-[0.5rem] sm:hidden"
                 initial={{ y: -80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
             >
@@ -25,7 +25,7 @@ export default function Header() {
                         setActiveSection("Home");
                         setTimeOfLastClick(Date.now());
                     }}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-900 bg-gray-900 text-sm font-bold tracking-tight text-white dark:border-white dark:bg-white dark:text-gray-900"
+                    className="flex h-9 w-9 items-center justify-center rounded-md border border-foreground bg-foreground font-serif text-sm font-semibold text-background"
                 >
                     DS
                 </Link>
@@ -35,7 +35,7 @@ export default function Header() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Book a call"
-                    className="mr-14 inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-3.5 py-2 text-xs font-semibold text-gray-900 transition active:scale-95 dark:border-white/20 dark:bg-transparent dark:text-white"
+                    className="mr-14 inline-flex touch-manipulation items-center gap-1.5 rounded-md bg-accent px-3.5 py-2 text-xs font-semibold tracking-[0.05em] text-accent-foreground shadow-sm transition active:scale-95"
                 >
                     <BsCalendar2Check className="text-sm" />
                     Book a Call
@@ -45,13 +45,13 @@ export default function Header() {
             {/* ── Desktop pill nav ── */}
             <div className="hidden sm:block">
                 <motion.div
-                    className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full dark:bg-zinc-900 dark:border-white/10 dark:bg-opacity-90"
+                    className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-border bg-card/85 shadow-sm backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full"
                     initial={{ y: -100, x: "-50%", opacity: 0 }}
                     animate={{ y: 0, x: "-50%", opacity: 1 }}
                 ></motion.div>
 
                 <nav className="flex fixed top-[0.15rem] left-1/2 h-12 -translate-x-1/2 py-2 sm:top-[1.7rem] sm:h-[initial] sm:py-0">
-                    <ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
+                    <ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-sm font-medium tracking-[0.05em] text-muted-foreground sm:w-[initial] sm:flex-nowrap sm:gap-5">
                         {links.map((link) => (
                             <motion.li
                                 className="h-3/4 flex items-center justify-center relative"
@@ -60,8 +60,8 @@ export default function Header() {
                                 animate={{ y: 0, opacity: 1 }}
                             >
                                 <Link
-                                    className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-gray-900 transition dark:text-gray-400 dark:hover:text-white", {
-                                        "text-gray-950 dark:text-gray-200":
+                                    className={clsx("flex w-full items-center justify-center px-3 py-3 transition hover:text-foreground", {
+                                        "text-foreground":
                                             activeSection === link.name,
                                     })}
                                     href={link.hash}
@@ -74,7 +74,7 @@ export default function Header() {
                                     {link.name}
                                     {link.name === activeSection && (
                                         <motion.span
-                                            className="bg-gray-200 rounded-full absolute inset-0 -z-10 dark:bg-zinc-700"
+                                            className="absolute inset-0 -z-10 rounded-full bg-muted"
                                             layoutId="activeSection"
                                             transition={{
                                                 type: "spring",

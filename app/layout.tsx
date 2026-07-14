@@ -1,5 +1,5 @@
 import './globals.css';
-import { Inter, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
+import { Playfair_Display, Source_Sans_3, IBM_Plex_Mono } from 'next/font/google';
 import Header from '@/components/Header';
 import MobileNav from '@/components/MobileNav';
 import ActiveSectionContextProvider from '@/context/active-section-context';
@@ -8,9 +8,9 @@ import ThemeContextProvider from '@/context/Theme-Context';
 import Footer from '@/components/Footer';
 import { Toaster } from 'react-hot-toast';
 
-const inter = Inter({ subsets: ['latin'] })
-const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
-const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'], variable: '--font-serif' })
+const sans = Source_Sans_3({ subsets: ['latin'], variable: '--font-sans' })
+const serif = Playfair_Display({ subsets: ['latin'], style: ['normal', 'italic'], variable: '--font-serif' })
+const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
 
 export const metadata = {
   title: 'Dikshant Singh',
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='!scroll-smooth'>
-      <body className={`${inter.className} ${mono.variable} ${serif.variable} bg-gray-100 text-gray-950 relative pt-20 pb-16 sm:pt-36 sm:pb-0 overflow-x-hidden dark:bg-zinc-950 dark:text-gray-50 dark:text-opacity-90`}>
+      <body className={`${sans.variable} ${serif.variable} ${mono.variable} bg-background font-sans text-foreground relative pt-20 pb-16 sm:pt-36 sm:pb-0 overflow-x-hidden`}>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header />

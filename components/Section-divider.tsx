@@ -5,10 +5,15 @@ import { motion } from "framer-motion";
 export default function SectionDivider() {
   return (
     <motion.div
-      className="bg-gray-400 my-12 h-12 w-1 rounded-full hidden sm:block dark:bg-opacity-20"
-      initial={{ opacity: 0, y: 100 }}
+      aria-hidden
+      className="my-14 hidden w-56 items-center gap-4 sm:flex"
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.125 }}
-    ></motion.div>
+    >
+      <span className="rule flex-1" />
+      <span className="h-1.5 w-1.5 rotate-45 bg-accent" />
+      <span className="rule flex-1" />
+    </motion.div>
   );
 }

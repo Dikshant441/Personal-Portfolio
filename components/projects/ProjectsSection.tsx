@@ -14,8 +14,7 @@ export default function ProjectsSection() {
       className="scroll-mt-24 mb-16 sm:mb-28 w-full max-w-4xl xl:max-w-6xl"
     >
       <SectionHeading
-        accent="built & shipped"
-        accentVariant="squiggle"
+        eyebrow="Selected Work"
         subtitle="Tap any card to see the brief, stack, and how to run it locally."
       >
         Things I&apos;ve built & shipped

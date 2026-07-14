@@ -13,27 +13,20 @@ export default function Experience() {
     <section
       id="career"
       ref={ref}
-      className="relative scroll-mt-24 mb-16 sm:mb-24 w-full max-w-4xl"
+      className="relative mb-16 w-full max-w-4xl scroll-mt-24 sm:mb-24"
     >
       <SectionHeading
-        accent="been & built"
-        accentVariant="italic"
+        eyebrow="Career"
         subtitle="Roles, rooms, and what shipped out of each."
       >
         Where I&apos;ve been & built
       </SectionHeading>
 
-      {/* subtle decorative gradient background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-      />
-
       <ol className="relative mt-6 pl-6 sm:pl-10">
         {/* Vertical rail */}
         <div
           aria-hidden
-          className="absolute left-[10px] top-3 bottom-3 w-px bg-gray-300 dark:bg-white/15 sm:left-[18px]"
+          className="absolute left-[10px] top-3 bottom-3 w-px bg-border sm:left-[18px]"
         />
 
         {experiencesData.map((item, index) => {
@@ -52,7 +45,7 @@ export default function Experience() {
               {/* Node on the rail */}
               <span
                 aria-hidden
-                className={`absolute -left-6 top-2 flex h-5 w-5 items-center justify-center rounded-full ring-4 ring-gray-50 dark:ring-gray-900 sm:-left-10 sm:h-7 sm:w-7 ${
+                className={`absolute -left-6 top-2 flex h-5 w-5 items-center justify-center rounded-full ring-4 ring-background sm:-left-10 sm:h-7 sm:w-7 ${
                   isCurrent
                     ? "bg-emerald-500 text-white"
                     : isEducation
@@ -64,23 +57,23 @@ export default function Experience() {
                   {item.icon}
                 </span>
                 {isCurrent && (
-                  <span className="absolute inset-0 -z-10 rounded-full bg-emerald-400 opacity-60 animate-ping" />
+                  <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-emerald-400 opacity-60" />
                 )}
               </span>
 
               {/* Date + tag row */}
               <div className="mb-2 flex flex-wrap items-center gap-2 text-xs">
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-gray-500 dark:text-white/55">
+                <span className="font-mono text-[0.7rem] font-medium uppercase tracking-[0.15em] text-muted-foreground">
                   {item.date}
                 </span>
                 {isCurrent && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-emerald-700 ring-1 ring-emerald-500/30 dark:text-emerald-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span className="inline-flex items-center gap-1.5 rounded-sm bg-accent/10 px-2 py-0.5 font-mono text-[0.6rem] font-medium uppercase tracking-[0.12em] text-accent ring-1 ring-accent/30">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                     Current
                   </span>
                 )}
                 {isEducation && (
-                  <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-amber-700 ring-1 ring-amber-500/30 dark:text-amber-300">
+                  <span className="rounded-sm border border-border px-2 py-0.5 font-mono text-[0.6rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">
                     Education
                   </span>
                 )}
@@ -88,26 +81,24 @@ export default function Experience() {
 
               {/* Card */}
               <div
-                className={`group rounded-2xl border bg-white/80 p-5 backdrop-blur transition-all hover:-translate-y-0.5 dark:bg-white/[0.04] sm:p-6 ${
-                  isCurrent
-                    ? "border-emerald-500/30 dark:border-emerald-400/30"
-                    : "border-black/5 dark:border-white/10"
+                className={`group rounded-lg border border-border bg-card p-5 shadow-sm transition-all duration-200 ease-out hover:bg-muted/30 hover:shadow-md sm:p-6 ${
+                  isCurrent ? "border-t-2 border-t-accent" : ""
                 }`}
               >
-                <h3 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white sm:text-xl">
+                <h3 className="font-serif text-lg font-semibold leading-[1.3] text-foreground sm:text-xl">
                   {item.title}
                 </h3>
-                <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm font-medium text-indigo-600 dark:text-indigo-300">
+                <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm font-medium text-accent">
                   <span>{item.company}</span>
-                  <span aria-hidden className="text-gray-400 dark:text-white/30">
+                  <span aria-hidden className="text-border">
                     •
                   </span>
-                  <span className="text-gray-600 dark:text-white/60">
+                  <span className="text-muted-foreground">
                     {item.location}
                   </span>
                 </p>
 
-                <p className="mt-3 text-[0.95rem] leading-relaxed text-gray-700 dark:text-white/75">
+                <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground">
                   {item.description}
                 </p>
 
@@ -116,17 +107,9 @@ export default function Experience() {
                     {item.highlights.map((h, i) => (
                       <li
                         key={i}
-                        className="flex gap-2.5 text-[0.9rem] text-gray-700 dark:text-white/75"
+                        className="flex gap-2.5 text-[0.9rem] text-muted-foreground"
                       >
-                        <CheckIcon
-                          className={
-                            isCurrent
-                              ? "text-emerald-500 dark:text-emerald-400"
-                              : isEducation
-                              ? "text-amber-500 dark:text-amber-400"
-                              : "text-indigo-500 dark:text-indigo-400"
-                          }
-                        />
+                        <CheckIcon className="text-accent" />
                         <span>{h}</span>
                       </li>
                     ))}
@@ -138,7 +121,7 @@ export default function Experience() {
                     {item.skills.map((skill) => (
                       <li
                         key={skill}
-                        className="rounded-full border border-black/10 bg-white px-2.5 py-0.5 font-mono text-[0.65rem] font-medium uppercase tracking-wider text-gray-700 dark:border-white/15 dark:bg-white/5 dark:text-white/75"
+                        className="rounded-sm border border-border bg-background px-2.5 py-0.5 font-mono text-[0.65rem] font-medium uppercase tracking-[0.12em] text-muted-foreground"
                       >
                         {skill}
                       </li>
