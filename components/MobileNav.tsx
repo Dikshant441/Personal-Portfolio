@@ -6,6 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { LuHome, LuUser, LuBriefcase, LuFolderGit2, LuMail } from "react-icons/lu";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { trackEvent } from "@/lib/analytics";
 
 const mobileLinks = [
   { name: "Home", hash: "#home", icon: LuHome },
@@ -36,6 +37,7 @@ export default function MobileNav() {
             onClick={() => {
               setActiveSection(link.name);
               setTimeOfLastClick(Date.now());
+              trackEvent("nav_click", { section: link.name, source: "mobile" });
             }}
             className={clsx(
               "relative flex touch-manipulation flex-col items-center gap-0.5 rounded-full px-3 py-1.5 text-[0.6rem] font-medium tracking-[0.05em] text-muted-foreground transition",
