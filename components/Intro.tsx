@@ -11,6 +11,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { BsCalendar2Check } from "react-icons/bs";
 import { useSectionView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { trackEvent } from "@/lib/analytics";
 
 const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 20 },
@@ -98,11 +99,13 @@ export default function Intro() {
                         {...fadeUp(0.12)}
                         className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground"
                     >
-                        With <span className="font-semibold text-foreground">~2 years</span> of experience shipping production software, I work across{" "}
-                        <span className="font-semibold text-foreground">product engineering, backend systems, and protocol-level infrastructure</span>.
-                        My recent work spans real-time applications, distributed systems, and low-level networking, and I adapt quickly to the tools a problem demands.
-                        Currently SDE at <span className="font-semibold text-foreground">Chainscore Labs</span>, and I also take on{" "}
-                        <span className="font-semibold text-foreground">freelance and side-project work</span> building products end to end.
+                        With <span className="font-semibold text-foreground">2+ years</span> shipping production software, I work across{" "}
+                        <span className="font-semibold text-foreground">product engineering, frontend, backend systems, and protocol-level infrastructure</span>.
+                        Recent work spans real-time applications, distributed systems, and low-level networking.
+                        Currently an SDE at <span className="font-semibold text-foreground">Chainscore Labs</span>, where I&apos;ve built{" "}
+                        <span className="font-semibold text-foreground">trading interfaces, distributed data pipelines, and protocol components</span>{" "}
+                        in the Polkadot ecosystem. I also take on{" "}
+                        <span className="font-semibold text-foreground">freelance and side-project work</span>, building products end to end.
                         Open to full-stack, frontend, backend, distributed systems, and systems software roles.
                     </motion.p>
 
@@ -141,7 +144,10 @@ export default function Intro() {
                         <button
                             type="button"
                             className="inline-flex min-h-[44px] touch-manipulation items-center gap-2 rounded-md border border-foreground bg-transparent px-6 py-2.5 text-sm font-medium tracking-[0.05em] text-foreground transition-all duration-200 ease-out hover:border-accent hover:bg-muted hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                            onClick={() => setIsResumePreviewOpen(true)}
+                            onClick={() => {
+                                trackEvent("resume_preview_open");
+                                setIsResumePreviewOpen(true);
+                            }}
                         >
                             Preview Resume
                             <HiDownload className="opacity-60" />
@@ -154,6 +160,7 @@ export default function Intro() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="LinkedIn"
+                                onClick={() => trackEvent("social_link_click", { network: "linkedin" })}
                             >
                                 <BsLinkedin className="text-[#0A66C2]" />
                             </a>
@@ -163,6 +170,7 @@ export default function Intro() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="GitHub"
+                                onClick={() => trackEvent("social_link_click", { network: "github" })}
                             >
                                 <FaGithubSquare className="text-[#181717] dark:text-white" />
                             </a>
@@ -172,6 +180,7 @@ export default function Intro() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="Twitter/X"
+                                onClick={() => trackEvent("social_link_click", { network: "x" })}
                             >
                                 <FaSquareXTwitter className="text-black dark:text-white" />
                             </a>
@@ -181,6 +190,7 @@ export default function Intro() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="Cal.com"
+                                onClick={() => trackEvent("social_link_click", { network: "cal" })}
                             >
                                 <BsCalendar2Check />
                             </a>
@@ -269,6 +279,7 @@ export default function Intro() {
                                     href={resumeHref}
                                     target="_blank"
                                     rel="noreferrer"
+                                    onClick={() => trackEvent("resume_open_new_tab")}
                                 >
                                     Open in new tab
                                 </a>
@@ -276,6 +287,7 @@ export default function Intro() {
                                     className="inline-flex min-h-[44px] touch-manipulation items-center justify-center gap-2 rounded-md bg-accent px-5 py-2 text-sm font-medium tracking-[0.05em] text-accent-foreground shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-secondary hover:shadow-md active:translate-y-0"
                                     href={resumeHref}
                                     download
+                                    onClick={() => trackEvent("resume_download")}
                                 >
                                     Download Resume
                                     <HiDownload className="opacity-70" />

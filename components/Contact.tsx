@@ -4,6 +4,7 @@ import React from "react";
 import SectionHeading from "./Section-heading";
 import { motion } from "framer-motion";
 import { useSectionView } from "@/lib/hooks";
+import { trackEvent } from "@/lib/analytics";
 import SubmitBtn from "./Submit-btn";
 import toast from "react-hot-toast";
 import { FiMail, FiMessageSquare } from "react-icons/fi";
@@ -24,6 +25,8 @@ export default function Contact() {
     const senderEmail = (form.elements.namedItem("senderEmail") as HTMLInputElement).value;
     const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
 
+    trackEvent("contact_form_submit");
+
     // setTimeout moves all React state updates outside the synchronous event-handler
     // context so React doesn't treat them as "synchronous input" and throw a Suspense error.
     setTimeout(async () => {
@@ -41,15 +44,18 @@ export default function Contact() {
           const msg = result.error ?? "Something went wrong";
           setState({ success: false, error: msg });
           toast.error(`Couldn't send right now. ${msg}`, { id: toastId });
+          trackEvent("contact_form_result", { success: false });
         } else {
           setState({ success: true, error: undefined });
           toast.success("Email sent successfully!", { id: toastId });
           formRef.current?.reset();
+          trackEvent("contact_form_result", { success: true });
         }
       } catch (err) {
         const msg = err instanceof Error ? err.message : "Unknown error";
         setState({ success: false, error: msg });
         toast.error(`Couldn't send right now. ${msg}`, { id: toastId });
+        trackEvent("contact_form_result", { success: false });
       } finally {
         setIsPending(false);
       }
@@ -98,15 +104,16 @@ export default function Contact() {
       {/* Quick links */}
       <div className="grid grid-cols-3 gap-3 sm:gap-4">
         {[
-          { href: "mailto:singhdikshant200@gmail.com", label: "Email", icon: <FiMail className="opacity-70" />, external: false },
-          { href: "https://wa.me/917339895383", label: "WhatsApp", icon: <FaWhatsapp className="opacity-80" />, external: true },
-          { href: "https://cal.com/dikshant-singh-canxf0/30min", label: "Book meeting", icon: <BsCalendar2Check className="opacity-70" />, external: true },
+          { href: "mailto:singhdikshant200@gmail.com", label: "Email", icon: <FiMail className="opacity-70" />, external: false, channel: "email" as const },
+          { href: "https://wa.me/917339895383", label: "WhatsApp", icon: <FaWhatsapp className="opacity-80" />, external: true, channel: "whatsapp" as const },
+          { href: "https://cal.com/dikshant-singh-canxf0/30min", label: "Book meeting", icon: <BsCalendar2Check className="opacity-70" />, external: true, channel: "cal" as const },
         ].map((link) => (
           <a
             key={link.label}
             href={link.href}
             {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
             className="flex min-h-[44px] touch-manipulation items-center justify-center gap-2 rounded-md border border-border bg-card py-3 text-sm text-foreground shadow-sm transition-all duration-200 ease-out hover:border-accent hover:bg-muted/30 hover:text-accent hover:shadow-md sm:py-3.5 sm:text-base"
+            onClick={() => trackEvent("contact_quick_link_click", { channel: link.channel })}
           >
             {link.icon}
             {link.label}

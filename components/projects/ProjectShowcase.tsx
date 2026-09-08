@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import type { ProjectShowcase as ProjectType } from "./types";
 import ProjectMedia from "./ProjectMedia";
+import { trackEvent } from "@/lib/analytics";
 
 type Props = {
   project: ProjectType;
@@ -82,6 +83,7 @@ export default function ProjectShowcase({ project, index }: Props) {
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex min-h-[44px] touch-manipulation items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium tracking-[0.05em] text-accent-foreground shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-secondary hover:shadow-md active:translate-y-0"
+                onClick={() => trackEvent("project_demo_click", { project: project.slug })}
               >
                 {project.demoLabel ?? "Live Demo"}
                 <ArrowIcon />
@@ -93,6 +95,7 @@ export default function ProjectShowcase({ project, index }: Props) {
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex min-h-[44px] touch-manipulation items-center gap-2 rounded-md border border-foreground bg-transparent px-4 py-2 text-sm font-medium tracking-[0.05em] text-foreground transition-all duration-200 ease-out hover:border-accent hover:bg-muted hover:text-accent"
+                onClick={() => trackEvent("project_repo_click", { project: project.slug })}
               >
                 <GitHubIcon />
                 View Code

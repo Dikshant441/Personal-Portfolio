@@ -7,6 +7,8 @@ import ThemeSwitch from '@/components/Theme-Switch';
 import ThemeContextProvider from '@/context/Theme-Context';
 import Footer from '@/components/Footer';
 import { Toaster } from 'react-hot-toast';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const sans = Source_Sans_3({ subsets: ['latin'], variable: '--font-sans' })
 const serif = Playfair_Display({ subsets: ['latin'], style: ['normal', 'italic'], variable: '--font-serif' })
@@ -35,7 +37,8 @@ export default function RootLayout({
             <ThemeSwitch />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
-
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

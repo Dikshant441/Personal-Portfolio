@@ -7,6 +7,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { BsCalendar2Check } from "react-icons/bs";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
     const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -36,6 +37,7 @@ export default function Header() {
                     rel="noreferrer"
                     aria-label="Book a call"
                     className="mr-14 inline-flex touch-manipulation items-center gap-1.5 rounded-md bg-accent px-3.5 py-2 text-xs font-semibold tracking-[0.05em] text-accent-foreground shadow-sm transition active:scale-95"
+                    onClick={() => trackEvent("book_meeting_click", { location: "header" })}
                 >
                     <BsCalendar2Check className="text-sm" />
                     Book a Call
@@ -68,6 +70,7 @@ export default function Header() {
                                     onClick={() => {
                                         setActiveSection(link.name);
                                         setTimeOfLastClick(Date.now());
+                                        trackEvent("nav_click", { section: link.name, source: "header" });
                                     }}
 
                                 >
