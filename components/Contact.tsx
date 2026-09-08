@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./Section-heading";
 import { motion } from "framer-motion";
 import { useSectionView } from "@/lib/hooks";
 import { trackEvent } from "@/lib/analytics";
@@ -94,12 +93,15 @@ export default function Contact() {
         once: true,
       }}
     >
-      <SectionHeading
-        eyebrow="Contact"
-        subtitle="Email, WhatsApp, or the form below. I usually reply within a day."
-      >
-        Let&apos;s get in touch
-      </SectionHeading>
+      <div className="mx-auto mb-4 flex max-w-2xl items-center gap-4">
+        <span aria-hidden className="rule flex-1" />
+        <span className="small-caps text-accent">Contact</span>
+        <span aria-hidden className="rule flex-1" />
+      </div>
+
+      <p className="mx-auto mb-10 max-w-md text-base leading-relaxed text-muted-foreground sm:mb-14 sm:text-lg">
+        Email, WhatsApp, or the form below. I usually reply within a day.
+      </p>
 
       {/* Quick links */}
       <div className="grid grid-cols-3 gap-3 sm:gap-4">

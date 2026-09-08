@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import SectionHeading from "./Section-heading";
 import { experiencesData } from "@/lib/data";
 import { useSectionView } from "@/lib/hooks";
 
@@ -15,12 +14,15 @@ export default function Experience() {
       ref={ref}
       className="relative mb-16 w-full max-w-4xl scroll-mt-24 sm:mb-24"
     >
-      <SectionHeading
-        eyebrow="Career"
-        subtitle="Roles, rooms, and what shipped out of each."
-      >
-        Where I&apos;ve been & built
-      </SectionHeading>
+      <div className="mb-4 flex items-center gap-4">
+        <span aria-hidden className="rule flex-1" />
+        <span className="small-caps text-accent">Career</span>
+        <span aria-hidden className="rule flex-1" />
+      </div>
+
+      <p className="mx-auto mb-10 max-w-2xl text-center text-base leading-relaxed text-muted-foreground sm:mb-14 sm:text-lg">
+        Roles, rooms, and what shipped out of each.
+      </p>
 
       <ol className="relative mt-6 pl-6 sm:pl-10">
         {/* Vertical rail */}
@@ -32,6 +34,8 @@ export default function Experience() {
         {experiencesData.map((item, index) => {
           const isCurrent = "current" in item && item.current === true;
           const isEducation = item.type === "education";
+          const highlightGroups = (item as { highlightGroups?: readonly { label: string; items: readonly string[] }[] }).highlightGroups;
+          const highlights = (item as { highlights?: readonly string[] }).highlights;
 
           return (
             <motion.li
@@ -102,18 +106,39 @@ export default function Experience() {
                   {item.description}
                 </p>
 
-                {item.highlights && item.highlights.length > 0 && (
-                  <ul className="mt-4 space-y-2">
-                    {item.highlights.map((h, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-2.5 text-[0.9rem] text-muted-foreground"
-                      >
-                        <CheckIcon className="text-accent" />
-                        <span>{h}</span>
-                      </li>
+                {highlightGroups && highlightGroups.length > 0 ? (
+                  <div className="mt-4 space-y-4">
+                    {highlightGroups.map((group) => (
+                      <div key={group.label}>
+                        <p className="small-caps mb-2 text-accent">{group.label}</p>
+                        <ul className="space-y-2">
+                          {group.items.map((h, i) => (
+                            <li
+                              key={i}
+                              className="flex gap-2.5 text-[0.9rem] text-muted-foreground"
+                            >
+                              <CheckIcon className="text-accent" />
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                ) : (
+                  highlights && highlights.length > 0 && (
+                    <ul className="mt-4 space-y-2">
+                      {highlights.map((h, i) => (
+                        <li
+                          key={i}
+                          className="flex gap-2.5 text-[0.9rem] text-muted-foreground"
+                        >
+                          <CheckIcon className="text-accent" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )
                 )}
 
                 {item.skills && item.skills.length > 0 && (

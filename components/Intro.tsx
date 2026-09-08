@@ -53,7 +53,7 @@ export default function Intro() {
     return (
         <>
             <section
-                className="relative mx-auto flex w-full max-w-5xl flex-col items-center gap-12 px-2 md:flex-row xl:items-center xl:gap-12 xl:px-0 lg:gap-12"
+                className="relative mx-auto flex w-full max-w-5xl flex-col items-center gap-12 px-2 sm:px-6 md:flex-row lg:gap-12 lg:px-10 xl:items-center xl:gap-12"
                 id="home"
                 ref={ref}
             >
@@ -97,7 +97,7 @@ export default function Intro() {
                     {/* Description */}
                     <motion.p
                         {...fadeUp(0.12)}
-                        className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground"
+                        className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground text-justify"
                     >
                         With <span className="font-semibold text-foreground">2+ years</span> shipping production software, I work across{" "}
                         <span className="font-semibold text-foreground">product engineering, frontend, backend systems, and protocol-level infrastructure</span>.
@@ -114,7 +114,7 @@ export default function Intro() {
                         {...fadeUp(0.15)}
                         className="mt-6 flex flex-wrap items-center justify-center gap-2 md:justify-start"
                     >
-                        {["Frontend & Backend", "Distributed Systems", "Protocol & Network Engineering"].map((badge) => (
+                        {["Frontend & Backend Development", "Distributed Systems", "Protocol & Network Engineering"].map((badge) => (
                             <span
                                 key={badge}
                                 className="rounded-sm border border-border bg-card px-3 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.12em] text-muted-foreground"
@@ -221,13 +221,13 @@ export default function Intro() {
                         className="absolute -bottom-3 -right-3 h-full w-full rounded-lg border border-accent/40"
                     />
 
-                    <div className="relative h-56 w-56 overflow-hidden rounded-lg border border-border bg-card shadow-md sm:h-64 sm:w-64 lg:h-72 lg:w-72">
+                    <div className="relative aspect-[3/4] w-56 overflow-hidden rounded-lg border border-border bg-card shadow-md sm:w-64 lg:w-72">
                         <Image
                             className="h-full w-full object-cover"
                             src="/logo.jpeg"
                             alt="Dikshant Singh"
                             width={288}
-                            height={288}
+                            height={384}
                             quality={95}
                             priority
                         />

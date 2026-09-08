@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./Section-heading";
 import { skillsData } from "@/lib/data";
 import { useSectionView } from "@/lib/hooks";
 import { motion } from "framer-motion";
@@ -176,12 +175,15 @@ export default function Skills() {
       ref={ref}
       className="mb-16 sm:mb-24 max-w-[53rem] scroll-mt-24 text-center"
     >
-      <SectionHeading
-        eyebrow="Toolkit"
-        subtitle="A glimpse of my daily drivers - not the full list."
-      >
-        What I reach for
-      </SectionHeading>
+      <div className="mb-4 flex items-center gap-4">
+        <span aria-hidden className="rule flex-1" />
+        <span className="small-caps text-accent">Toolkit</span>
+        <span aria-hidden className="rule flex-1" />
+      </div>
+
+      <p className="mx-auto mb-10 max-w-2xl text-center text-base leading-relaxed text-muted-foreground sm:mb-14 sm:text-lg">
+        A glimpse of my daily drivers - not the full list.
+      </p>
 
       <div className="flex flex-col gap-3">
         <MarqueeRow items={rowA} direction="ltr" duration={35} />
